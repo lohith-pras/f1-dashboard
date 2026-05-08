@@ -1,0 +1,10 @@
+[project]
+name = "f1-dash"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastf1>=3.8.3",
+    "requests>=2.33.1",
+]

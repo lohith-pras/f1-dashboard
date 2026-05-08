@@ -1,0 +1,48 @@
+name: Update F1 Standings
+
+on:
+  # Run every day at 18:00 UTC (covers most Sunday race finish times)
+  # and again at 22:00 UTC for late-finishing night races (Singapore, Las Vegas)
+  schedule:
+    - cron: "0 18 * * *"
+    - cron: "0 22 * * *"
+
+  # Always allow a manual trigger from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  fetch-standings:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to push the updated standings.json
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Set up Python via uv
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run standings fetcher
+        run: uv run fetch_standings.py
+
+      - name: Commit & push if standings changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add standings.json
+          # Only commit if the file actually changed
+          if git diff --cached --quiet; then
+            echo "standings.json unchanged — skipping commit"
+          else
+            git commit -m "chore: update F1 standings $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
