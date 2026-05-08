@@ -957,38 +957,50 @@ body {
   .cal-flag-name { font-size: 15px; }
 }
 
-/* --- Go Live section in the main layout --------------------------- */
+/* --- Data Status section ------------------------------------------ */
 
-.golive-section {
+.datastatus-section {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 36px 40px;
 }
-.golive-card {
+.datastatus-card {
   background: var(--carbon);
   color: var(--paper);
   border: 2px solid var(--ink);
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.6fr;
   gap: 0;
 }
-.golive-stripe {
+.datastatus-stripe {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
   background: repeating-linear-gradient(
     90deg,
     var(--racing) 0 40px,
-    var(--paper) 40px 80px
+    rgba(242,236,224,0.15) 40px 80px
   );
 }
-.golive-left {
-  padding: 38px 34px 32px;
-  border-right: 1px solid rgba(242,236,224,0.12);
+/* Animated pulse on the stripe while data is fresh */
+@keyframes stripeShift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 80px 0; }
 }
-.golive-eyebrow {
+.datastatus-card.fresh .datastatus-stripe {
+  animation: stripeShift 2s linear infinite;
+}
+
+.datastatus-left {
+  padding: 38px 34px 32px;
+  border-right: 1px solid rgba(242,236,224,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.datastatus-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 600;
@@ -997,181 +1009,196 @@ body {
   color: var(--racing-hot);
   margin-bottom: 14px;
 }
-.golive-title {
+.datastatus-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 500;
-  line-height: 1.02;
-  margin-bottom: 12px;
+  line-height: 1.05;
+  margin-bottom: 10px;
 }
-.golive-title em { color: var(--racing-hot); font-style: italic; font-weight: 400; }
-.golive-lede {
+.datastatus-title em { color: var(--racing-hot); font-style: italic; font-weight: 400; }
+.datastatus-lede {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(242,236,224,0.74);
-  max-width: 40ch;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(242,236,224,0.65);
+  max-width: 38ch;
+  margin-bottom: 28px;
 }
-.golive-right {
+
+/* Big sync timestamp */
+.datastatus-sync-wrap {
+  margin-top: auto;
+}
+.datastatus-sync-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(242,236,224,0.4);
+  margin-bottom: 8px;
+}
+.datastatus-sync-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.datastatus-sync-time .sync-fresh { color: #4ade80; }
+.datastatus-sync-time .sync-stale { color: var(--gold); }
+.datastatus-sync-ago {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(242,236,224,0.45);
+  margin-top: 5px;
+}
+
+/* Stack badges */
+.datastatus-right {
   padding: 32px 34px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 0;
 }
-.golive-step {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(242,236,224,0.08);
-}
-.golive-step:last-child { border-bottom: none; padding-bottom: 0; }
-.golive-step-num {
+.datastatus-stack-head {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  color: var(--racing-hot);
-  border-right: 1px solid rgba(242,236,224,0.18);
-  padding-right: 14px;
-  align-self: start;
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(242,236,224,0.4);
+  margin-bottom: 20px;
 }
-.golive-step-head {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--paper);
-  margin-bottom: 4px;
+.datastatus-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
 }
-.golive-step-head em {
+.datastatus-pipe-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(242,236,224,0.07);
+  position: relative;
+}
+.datastatus-pipe-row:last-child { border-bottom: none; }
+/* connector line between steps */
+.datastatus-pipe-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  bottom: -1px;
+  width: 1px;
+  height: 100%;
+  background: rgba(242,236,224,0.12);
+  pointer-events: none;
+}
+.pipe-num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .18em;
   color: var(--racing-hot);
-  margin-left: 10px;
-}
-.golive-step-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(242,236,224,0.66);
-}
-.golive-step-body code {
-  background: rgba(242,236,224,0.08);
-  color: var(--paper);
-  padding: 1px 6px;
-  border-radius: 2px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-}
-.golive-cta-row {
+  background: rgba(30,94,255,0.15);
+  border: 1px solid rgba(30,94,255,0.3);
+  width: 36px;
+  height: 36px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+  position: relative;
 }
-.golive-cta {
+.pipe-body {}
+.pipe-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.pipe-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(242,236,224,0.5);
+  letter-spacing: .04em;
+}
+.pipe-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+.pipe-badge.ok   { color: #4ade80; border-color: rgba(74,222,128,0.35); background: rgba(74,222,128,0.08); }
+.pipe-badge.cron { color: var(--gold); border-color: rgba(255,216,77,0.35); background: rgba(255,216,77,0.08); }
+.pipe-badge.api  { color: var(--racing-hot); border-color: rgba(95,168,255,0.35); background: rgba(95,168,255,0.08); }
+
+/* Bottom action row */
+.datastatus-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(242,236,224,0.08);
+  flex-wrap: wrap;
+}
+.datastatus-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 16px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 0;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-.golive-cta-primary {
-  background: var(--racing);
-  color: var(--paper);
-  border: 1px solid var(--racing);
-}
-.golive-cta-primary:hover {
-  background: var(--racing-hot);
-  border-color: var(--racing-hot);
-  transform: translateY(-1px);
-}
-.golive-cta-ghost {
-  background: transparent;
-  color: var(--paper);
-  border: 1px solid rgba(242,236,224,0.3);
-}
-.golive-cta-ghost:hover {
-  border-color: var(--paper);
-  background: rgba(242,236,224,0.06);
-}
-@media (max-width: 880px) {
-  .golive-card { grid-template-columns: 1fr; }
-  .golive-left { border-right: none; border-bottom: 1px solid rgba(242,236,224,0.12); }
-  .golive-section { padding: 0 20px 32px; }
-}
-
-/* Inline expandable detail blocks · "show the prompt" / "show the setup" */
-.golive-details {
-  margin-top: 10px;
-}
-.golive-details summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  list-style: none;
+  padding: 10px 16px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--racing-hot);
-  padding: 4px 0;
-  transition: color 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.18s;
 }
-.golive-details summary::-webkit-details-marker { display: none; }
-.golive-details summary::before {
-  content: '+';
-  display: inline-block;
-  width: 12px;
-  font-size: 13px;
-  line-height: 1;
+.datastatus-btn-primary {
+  background: var(--racing);
+  color: #fff;
 }
-.golive-details[open] summary::before { content: '−'; }
-.golive-details summary:hover { color: var(--paper); }
-.golive-detail-p {
-  font-family: 'Inter', sans-serif;
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: rgba(242,236,224,0.74);
-  margin: 12px 0 8px;
+.datastatus-btn-primary:hover { background: var(--racing-hot); transform: translateY(-1px); }
+.datastatus-btn-primary:active { transform: scale(0.97); }
+.datastatus-btn-ghost {
+  background: transparent;
+  color: rgba(242,236,224,0.75);
+  border: 1px solid rgba(242,236,224,0.22);
 }
-.golive-detail-p strong { color: var(--paper); font-weight: 600; }
-.golive-detail-p code {
-  background: rgba(242,236,224,0.08);
-  color: var(--paper);
-  padding: 1px 5px;
-  border-radius: 2px;
+.datastatus-btn-ghost:hover { border-color: rgba(242,236,224,0.6); color: var(--paper); }
+
+/* Spinner inside refresh button */
+@keyframes spin { to { transform: rotate(360deg); } }
+.datastatus-btn-primary.loading .btn-icon { animation: spin 0.8s linear infinite; }
+
+.datastatus-fetched-note {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
+  font-size: 9px;
+  color: rgba(242,236,224,0.3);
+  letter-spacing: .08em;
 }
-.golive-pre {
-  margin: 8px 0 4px;
-  padding: 14px 16px;
-  background: rgba(0,0,0,0.4);
-  border-left: 2px solid var(--racing);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  line-height: 1.55;
-  color: rgba(242,236,224,0.88);
-  white-space: pre;
-  overflow-x: auto;
-  letter-spacing: 0.005em;
+
+@media (max-width: 880px) {
+  .datastatus-card { grid-template-columns: 1fr; }
+  .datastatus-left { border-right: none; border-bottom: 1px solid rgba(242,236,224,0.1); }
+  .datastatus-section { padding: 0 20px 32px; }
 }
-.golive-pre::-webkit-scrollbar { height: 6px; }
-.golive-pre::-webkit-scrollbar-thumb { background: rgba(242,236,224,0.18); }
+
 
 </style>
 </head>
@@ -1459,106 +1486,6 @@ body {
   </div>
 </section>
 
-<!-- GO LIVE SECTION · data upgrade paths · DO NOT MODIFY CTAs -->
-<section class="golive-section">
-  <div class="golive-card">
-    <div class="golive-stripe" aria-hidden="true"></div>
-    <div class="golive-left">
-      <div class="golive-eyebrow">§ 04 · Go Live</div>
-      <h2 class="golive-title">Make it <em>auto-update</em>.</h2>
-      <p class="golive-lede">
-        Right now this dashboard is a snapshot — you update the numbers after each race. When you're ready, there are three paths to real-time data pulled straight from the F1 API after every checkered flag.
-      </p>
-    </div>
-    <div class="golive-right">
-
-      <div class="golive-step">
-        <div class="golive-step-num">01</div>
-        <div>
-          <div class="golive-step-head">Manual <em>· 2 min after each race</em></div>
-          <div class="golive-step-body">
-            Open <code>index.html</code> in any text editor. Find a driver's name (e.g. <code>Antonelli</code>), update the number a few lines below it (e.g. <code>72</code> &rarr; <code>97</code>). Save. Redeploy. Good for fans who only watch the majors.
-          </div>
-        </div>
-      </div>
-
-      <div class="golive-step">
-        <div class="golive-step-num">02</div>
-        <div>
-          <div class="golive-step-head">Semi-auto <em>· 30 sec via AI</em></div>
-          <div class="golive-step-body">
-            Paste the file into Claude or ChatGPT with this prompt &mdash; it does the rest.
-          </div>
-          <details class="golive-details">
-            <summary>show the prompt</summary>
-<pre class="golive-pre">Update my F1 dashboard after the [RACE NAME] GP.
-
-New driver standings (top 10):
-1. Antonelli &mdash; 97
-2. Russell &mdash; 84
-3. Leclerc &mdash; 68
-&hellip;
-
-New constructor totals:
-Mercedes 181, Ferrari 124, McLaren &hellip;
-
-New podium for "Last Race":
-P1 [Driver] &mdash; [Team] &mdash; [Time]
-P2 &hellip; (gap)
-P3 &hellip; (gap)
-
-Update the countdown to the next race.
-Return the COMPLETE HTML in one code block. Preserve every
-&lt;!-- DO NOT MODIFY --&gt; block exactly as-is.</pre>
-          </details>
-        </div>
-      </div>
-
-      <div class="golive-step">
-        <div class="golive-step-num">03</div>
-        <div>
-          <div class="golive-step-head">Full auto <em>· public API, no manual edits</em></div>
-          <div class="golive-step-body">
-            Hook the dashboard to a public F1 data API. Standings update on their own once a race is over &mdash; no touching the file again for the rest of the season.
-          </div>
-          <details class="golive-details">
-            <summary>show the setup</summary>
-            <p class="golive-detail-p"><strong>Easiest path &middot; Jolpica F1 (Ergast successor, CORS-enabled).</strong> Add this script tag near the bottom of the file, just before the closing <code>&lt;/body&gt;</code>. It fetches once on load and overwrites the hardcoded driver points in place:</p>
-<pre class="golive-pre">&lt;script&gt;
-(async function () {
-  try {
-    const r = await fetch('https://api.jolpi.ca/ergast/f1/current/driverStandings.json');
-    const j = await r.json();
-    const list = j.MRData.StandingsTable.StandingsLists[0]?.DriverStandings || [];
-    document.querySelectorAll('.driver-row').forEach((row, i) =&gt; {
-      const d = list[i];
-      if (!d) return;
-      const pts = row.querySelector('.driver-pts');
-      if (pts) pts.textContent = d.points;
-    });
-  } catch (e) { /* network blip &mdash; keep the static template */ }
-})();
-&lt;/script&gt;</pre>
-            <p class="golive-detail-p"><strong>More powerful &middot; OpenF1 + a tiny proxy.</strong> OpenF1 has live timing data (laps, pit stops, positions during a session) but doesn't expose CORS. A 30-line Cloudflare Worker fixes that and adds a 10-minute cache. The Worker quickstart link below has everything; the transformation logic mirrors the snippet above.</p>
-            <p class="golive-detail-p"><strong>Python path &middot; FastF1 + GitHub Actions.</strong> Prefer Python? Use the FastF1 library to write a JSON snapshot, commit it via a GitHub Action on a daily cron, and have the dashboard fetch the JSON. Same idea, different stack.</p>
-          </details>
-        </div>
-      </div>
-
-      <div class="golive-cta-row">
-        <a class="golive-cta golive-cta-ghost" href="https://api.jolpi.ca/ergast/" target="_blank" rel="noopener noreferrer">
-          Jolpica F1 API
-        </a>
-        <a class="golive-cta golive-cta-ghost" href="https://openf1.org/" target="_blank" rel="noopener noreferrer">
-          OpenF1 docs
-        </a>
-        <a class="golive-cta golive-cta-ghost" href="https://docs.fastf1.dev/" target="_blank" rel="noopener noreferrer">
-          FastF1 (Python)
-        </a>
-        <a class="golive-cta golive-cta-ghost" href="https://developers.cloudflare.com/workers/get-started/quickstarts/" target="_blank" rel="noopener noreferrer">
-          Cloudflare Workers
-        </a>
-      </div>
 
     </div>
   </div>
@@ -1910,8 +1837,85 @@ Return the COMPLETE HTML in one code block. Preserve every
     if (statLeadSub) statLeadSub.textContent = `${data.drivers[0].name} over ${data.drivers[1].name}`;
   }
 
+  // ── 8. Data Status panel ──────────────────────────────────────────────────
+  if (data.fetchedAt) {
+    const fetchedDate = new Date(data.fetchedAt);
+    const ageMs = Date.now() - fetchedDate.getTime();
+    const ageHrs = ageMs / 3600000;
+    const isFresh = ageHrs < 24;
+
+    // Timestamp display
+    const syncTimeEl = document.getElementById('syncTime');
+    if (syncTimeEl) {
+      const dateStr = fetchedDate.toLocaleDateString('en-GB', {
+        weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC'
+      }).toUpperCase();
+      const timeStr = fetchedDate.toLocaleTimeString('en-GB', {
+        hour: '2-digit', minute: '2-digit', timeZone: 'UTC'
+      }) + ' UTC';
+      syncTimeEl.innerHTML = `<span class="${isFresh ? 'sync-fresh' : 'sync-stale'}">${dateStr}</span> · ${timeStr}`;
+    }
+
+    // "X hours ago" label
+    const syncAgoEl = document.getElementById('syncAgo');
+    if (syncAgoEl) {
+      let ago;
+      if (ageHrs < 1) ago = `${Math.round(ageMs / 60000)} min ago`;
+      else if (ageHrs < 48) ago = `${Math.round(ageHrs)} hr ago`;
+      else ago = `${Math.round(ageHrs / 24)} days ago`;
+      syncAgoEl.textContent = `${ago} · ${isFresh ? 'data is current' : 'awaiting next cron run'}`;
+    }
+
+    // Hydration badge on step 04
+    const hydBadge = document.getElementById('hydrationBadge');
+    if (hydBadge) {
+      const rounds = data.lastRace ? data.lastRace.round : '?';
+      hydBadge.textContent = `R${rounds} loaded`;
+      hydBadge.className = 'pipe-badge ok';
+    }
+
+    // Animate stripe if fresh
+    const card = document.getElementById('dataStatusCard');
+    if (card && isFresh) card.classList.add('fresh');
+
+    // fetchedNote
+    const noteEl = document.getElementById('fetchedNote');
+    if (noteEl && data.season) {
+      noteEl.textContent = `standings.json · ${data.season} season · auto-committed after each race`;
+    }
+  }
+
   console.info('[PitWall] 🏎 Live data hydrated from standings.json —', data.fetchedAt);
 })();
+
+// Global refresh function wired to the Refresh Data button
+window.pitWallRefresh = async function() {
+  const btn = document.getElementById('refreshBtn');
+  if (btn) {
+    btn.classList.add('loading');
+    btn.disabled = true;
+  }
+  // Clear cache-buster so we actually re-fetch
+  try {
+    const res = await fetch('standings.json?_=' + Date.now());
+    if (res.ok) {
+      // Full page reload is the safest way to re-run all hydration
+      window.location.reload();
+    } else {
+      throw new Error('not ok');
+    }
+  } catch {
+    if (btn) {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      btn.querySelector('.btn-icon').textContent = '✕';
+      setTimeout(() => {
+        btn.querySelector('.btn-icon').textContent = '↻';
+        btn.disabled = false;
+      }, 2000);
+    }
+  }
+};
 </script>
 </body>
 </html>
