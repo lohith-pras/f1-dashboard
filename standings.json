@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-22T22:49:36.176345+00:00",
+  "fetchedAt": "2026-05-23T19:02:51.479236+00:00",
   "season": 2026,
   "lastRace": {
     "round": 4,
@@ -45,7 +45,7 @@
       "code": "ANT",
       "team": "Mercedes",
       "nationality": "Italian",
-      "points": 100,
+      "points": 106,
       "gap": "LEAD",
       "teamColor": "mercedes",
       "isLeader": true
@@ -56,8 +56,8 @@
       "code": "RUS",
       "team": "Mercedes",
       "nationality": "British",
-      "points": 80,
-      "gap": "\u221220",
+      "points": 88,
+      "gap": "\u221218",
       "teamColor": "mercedes",
       "isLeader": false
     },
@@ -67,8 +67,8 @@
       "code": "LEC",
       "team": "Ferrari",
       "nationality": "Monegasque",
-      "points": 59,
-      "gap": "\u221241",
+      "points": 63,
+      "gap": "\u221243",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -78,8 +78,8 @@
       "code": "NOR",
       "team": "McLaren",
       "nationality": "British",
-      "points": 51,
-      "gap": "\u221249",
+      "points": 58,
+      "gap": "\u221248",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -89,8 +89,8 @@
       "code": "HAM",
       "team": "Ferrari",
       "nationality": "British",
-      "points": 51,
-      "gap": "\u221249",
+      "points": 54,
+      "gap": "\u221252",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -100,8 +100,8 @@
       "code": "PIA",
       "team": "McLaren",
       "nationality": "Australian",
-      "points": 43,
-      "gap": "\u221257",
+      "points": 48,
+      "gap": "\u221258",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -111,8 +111,8 @@
       "code": "VER",
       "team": "Red Bull",
       "nationality": "Dutch",
-      "points": 26,
-      "gap": "\u221274",
+      "points": 28,
+      "gap": "\u221278",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -123,7 +123,7 @@
       "team": "Haas F1 Team",
       "nationality": "British",
       "points": 17,
-      "gap": "\u221283",
+      "gap": "\u221289",
       "teamColor": "haas",
       "isLeader": false
     },
@@ -134,7 +134,7 @@
       "team": "Alpine F1 Team",
       "nationality": "French",
       "points": 16,
-      "gap": "\u221284",
+      "gap": "\u221290",
       "teamColor": "alpine",
       "isLeader": false
     },
@@ -145,7 +145,7 @@
       "team": "RB F1 Team",
       "nationality": "New Zealander",
       "points": 10,
-      "gap": "\u221290",
+      "gap": "\u221296",
       "teamColor": "racingbulls",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 180,
+      "points": 194,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,24 +163,24 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 110,
-      "barPct": 61,
+      "points": 117,
+      "barPct": 60,
       "teamColor": "ferrari"
     },
     {
       "pos": 3,
       "name": "McLaren",
       "nationality": "British",
-      "points": 94,
-      "barPct": 52,
+      "points": 106,
+      "barPct": 55,
       "teamColor": "mclaren"
     },
     {
       "pos": 4,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 30,
-      "barPct": 17,
+      "points": 32,
+      "barPct": 16,
       "teamColor": "redbull"
     },
     {
@@ -188,7 +188,7 @@
       "name": "Alpine F1 Team",
       "nationality": "French",
       "points": 23,
-      "barPct": 13,
+      "barPct": 12,
       "teamColor": "alpine"
     },
     {
@@ -196,14 +196,14 @@
       "name": "Haas F1 Team",
       "nationality": "American",
       "points": 18,
-      "barPct": 10,
+      "barPct": 9,
       "teamColor": "haas"
     },
     {
       "pos": 7,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 14,
+      "points": 15,
       "barPct": 8,
       "teamColor": "racingbulls"
     },
