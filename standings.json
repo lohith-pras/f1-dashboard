@@ -1,31 +1,31 @@
 {
-  "fetchedAt": "2026-05-24T19:09:56.770961+00:00",
+  "fetchedAt": "2026-05-24T22:45:38.317039+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 4,
-    "name": "Miami Grand Prix",
-    "circuit": "Miami International Autodrome",
+    "round": 5,
+    "name": "Canadian Grand Prix",
+    "circuit": "Circuit Gilles Villeneuve",
     "podium": [
       {
         "pos": 1,
         "driver": "Andrea Kimi Antonelli",
         "team": "Mercedes",
         "number": "12",
-        "time": "1:33:19.273"
+        "time": "1:28:15.758"
       },
       {
         "pos": 2,
-        "driver": "Lando Norris",
-        "team": "McLaren",
-        "number": "1",
-        "time": "+3.264"
+        "driver": "Lewis Hamilton",
+        "team": "Ferrari",
+        "number": "44",
+        "time": "+10.768"
       },
       {
         "pos": 3,
-        "driver": "Oscar Piastri",
-        "team": "McLaren",
-        "number": "81",
-        "time": "+27.092"
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "number": "3",
+        "time": "+11.276"
       }
     ]
   },
@@ -283,7 +283,8 @@
       "circuit": "Circuit Gilles Villeneuve",
       "country": "Canada",
       "date": "2026-05-24",
-      "status": "next"
+      "status": "next",
+      "winner": "A. Antonelli"
     },
     {
       "round": 6,
