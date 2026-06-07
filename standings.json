@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-07T19:14:14.224079+00:00",
+  "fetchedAt": "2026-06-07T22:53:10.088512+00:00",
   "season": 2026,
   "lastRace": {
     "round": 6,
@@ -225,19 +225,19 @@
     },
     {
       "pos": 10,
-      "name": "Cadillac F1 Team",
-      "nationality": "American",
+      "name": "Aston Martin",
+      "nationality": "British",
       "points": 1,
       "barPct": 0,
-      "teamColor": "cadillac"
+      "teamColor": "aston"
     },
     {
       "pos": 11,
-      "name": "Aston Martin",
-      "nationality": "British",
+      "name": "Cadillac F1 Team",
+      "nationality": "American",
       "points": 0,
       "barPct": 0,
-      "teamColor": "aston"
+      "teamColor": "cadillac"
     }
   ],
   "calendar": [
