@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-11T23:13:01.395090+00:00",
+  "fetchedAt": "2026-06-12T20:03:11.370573+00:00",
   "season": 2026,
   "lastRace": {
     "round": 6,
@@ -22,10 +22,10 @@
       },
       {
         "pos": 3,
-        "driver": "Isack Hadjar",
-        "team": "Red Bull",
-        "number": "6",
-        "time": "+23.394"
+        "driver": "Pierre Gasly",
+        "team": "Alpine F1 Team",
+        "number": "10",
+        "time": "+20.369"
       }
     ]
   },
@@ -89,8 +89,8 @@
       "code": "PIA",
       "team": "McLaren",
       "nationality": "Australian",
-      "points": 60,
-      "gap": "\u221296",
+      "points": 58,
+      "gap": "\u221298",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -118,35 +118,35 @@
     },
     {
       "pos": 8,
-      "name": "I. Hadjar",
-      "code": "HAD",
-      "team": "Red Bull",
-      "nationality": "French",
-      "points": 29,
-      "gap": "\u2212127",
-      "teamColor": "redbull",
-      "isLeader": false
-    },
-    {
-      "pos": 9,
-      "name": "L. Lawson",
-      "code": "LAW",
-      "team": "RB F1 Team",
-      "nationality": "New Zealander",
-      "points": 26,
-      "gap": "\u2212130",
-      "teamColor": "racingbulls",
-      "isLeader": false
-    },
-    {
-      "pos": 10,
       "name": "P. Gasly",
       "code": "GAS",
       "team": "Alpine F1 Team",
       "nationality": "French",
+      "points": 35,
+      "gap": "\u2212121",
+      "teamColor": "alpine",
+      "isLeader": false
+    },
+    {
+      "pos": 9,
+      "name": "I. Hadjar",
+      "code": "HAD",
+      "team": "Red Bull",
+      "nationality": "French",
       "points": 26,
       "gap": "\u2212130",
-      "teamColor": "alpine",
+      "teamColor": "redbull",
+      "isLeader": false
+    },
+    {
+      "pos": 10,
+      "name": "L. Lawson",
+      "code": "LAW",
+      "team": "RB F1 Team",
+      "nationality": "New Zealander",
+      "points": 24,
+      "gap": "\u2212132",
+      "teamColor": "racingbulls",
       "isLeader": false
     }
   ],
@@ -171,7 +171,7 @@
       "pos": 3,
       "name": "McLaren",
       "nationality": "British",
-      "points": 118,
+      "points": 116,
       "barPct": 48,
       "teamColor": "mclaren"
     },
@@ -179,24 +179,24 @@
       "pos": 4,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 72,
-      "barPct": 30,
+      "points": 69,
+      "barPct": 28,
       "teamColor": "redbull"
     },
     {
       "pos": 5,
       "name": "Alpine F1 Team",
       "nationality": "French",
-      "points": 41,
-      "barPct": 17,
+      "points": 50,
+      "barPct": 20,
       "teamColor": "alpine"
     },
     {
       "pos": 6,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 39,
-      "barPct": 16,
+      "points": 35,
+      "barPct": 14,
       "teamColor": "racingbulls"
     },
     {
