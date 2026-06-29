@@ -3996,7 +3996,6 @@
 
       function renderLiveTable(data) {
         const isRace = ['Race', 'Sprint'].includes(data.session_type);
-        const isQually = ['Qualifying', 'Sprint Qualifying'].includes(data.session_type);
 
         const pane = getEl('livePane');
         // Build header
@@ -4020,7 +4019,7 @@
           };
         } else {
           // Qualifying / Practice / etc.
-          headerCols = '<th>POS</th><th>Driver</th><th>Gap</th><th>Best / Last</th>';
+          headerCols = '<th>POS</th><th>Driver</th><th>Gap</th><th>Last Lap</th>';
           rowFn = (d) => `
             <tr>
               <td class="timing-col-pos">${d.pos}</td>
