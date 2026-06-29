@@ -1,42 +1,42 @@
 {
-  "fetchedAt": "2026-05-08T22:44:13.016445+00:00",
+  "fetchedAt": "2026-06-29T11:59:41.532232+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 4,
-    "name": "Miami Grand Prix",
-    "circuit": "Miami International Autodrome",
+    "round": 8,
+    "name": "Austrian Grand Prix",
+    "circuit": "Red Bull Ring",
     "podium": [
       {
         "pos": 1,
-        "driver": "Andrea Kimi Antonelli",
+        "driver": "George Russell",
         "team": "Mercedes",
-        "number": "12",
-        "time": "1:33:19.273"
+        "number": "63",
+        "time": "1:26:37.979"
       },
       {
         "pos": 2,
-        "driver": "Lando Norris",
-        "team": "McLaren",
-        "number": "1",
-        "time": "+3.264"
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "number": "3",
+        "time": "+1.611"
       },
       {
         "pos": 3,
-        "driver": "Oscar Piastri",
-        "team": "McLaren",
-        "number": "81",
-        "time": "+27.092"
+        "driver": "Andrea Kimi Antonelli",
+        "team": "Mercedes",
+        "number": "12",
+        "time": "+1.986"
       }
     ]
   },
   "nextRace": {
-    "round": 5,
-    "name": "Canadian Grand Prix",
-    "circuit": "Circuit Gilles Villeneuve",
-    "locality": "Montreal",
-    "country": "Canada",
-    "date": "2026-05-24",
-    "time": "20:00:00Z"
+    "round": 9,
+    "name": "British Grand Prix",
+    "circuit": "Silverstone Circuit",
+    "locality": "Silverstone",
+    "country": "UK",
+    "date": "2026-07-05",
+    "time": "14:00:00Z"
   },
   "drivers": [
     {
@@ -45,7 +45,7 @@
       "code": "ANT",
       "team": "Mercedes",
       "nationality": "Italian",
-      "points": 100,
+      "points": 171,
       "gap": "LEAD",
       "teamColor": "mercedes",
       "isLeader": true
@@ -56,53 +56,53 @@
       "code": "RUS",
       "team": "Mercedes",
       "nationality": "British",
-      "points": 80,
-      "gap": "\u221220",
+      "points": 131,
+      "gap": "\u221240",
       "teamColor": "mercedes",
       "isLeader": false
     },
     {
       "pos": 3,
-      "name": "C. Leclerc",
-      "code": "LEC",
+      "name": "L. Hamilton",
+      "code": "HAM",
       "team": "Ferrari",
-      "nationality": "Monegasque",
-      "points": 59,
-      "gap": "\u221241",
+      "nationality": "British",
+      "points": 125,
+      "gap": "\u221246",
       "teamColor": "ferrari",
       "isLeader": false
     },
     {
       "pos": 4,
-      "name": "L. Norris",
-      "code": "NOR",
+      "name": "O. Piastri",
+      "code": "PIA",
       "team": "McLaren",
-      "nationality": "British",
-      "points": 51,
-      "gap": "\u221249",
+      "nationality": "Australian",
+      "points": 80,
+      "gap": "\u221291",
       "teamColor": "mclaren",
       "isLeader": false
     },
     {
       "pos": 5,
-      "name": "L. Hamilton",
-      "code": "HAM",
-      "team": "Ferrari",
+      "name": "L. Norris",
+      "code": "NOR",
+      "team": "McLaren",
       "nationality": "British",
-      "points": 51,
-      "gap": "\u221249",
-      "teamColor": "ferrari",
+      "points": 79,
+      "gap": "\u221292",
+      "teamColor": "mclaren",
       "isLeader": false
     },
     {
       "pos": 6,
-      "name": "O. Piastri",
-      "code": "PIA",
-      "team": "McLaren",
-      "nationality": "Australian",
-      "points": 43,
-      "gap": "\u221257",
-      "teamColor": "mclaren",
+      "name": "C. Leclerc",
+      "code": "LEC",
+      "team": "Ferrari",
+      "nationality": "Monegasque",
+      "points": 79,
+      "gap": "\u221292",
+      "teamColor": "ferrari",
       "isLeader": false
     },
     {
@@ -111,20 +111,20 @@
       "code": "VER",
       "team": "Red Bull",
       "nationality": "Dutch",
-      "points": 26,
-      "gap": "\u221274",
+      "points": 73,
+      "gap": "\u221298",
       "teamColor": "redbull",
       "isLeader": false
     },
     {
       "pos": 8,
-      "name": "O. Bearman",
-      "code": "BEA",
-      "team": "Haas F1 Team",
-      "nationality": "British",
-      "points": 17,
-      "gap": "\u221283",
-      "teamColor": "haas",
+      "name": "I. Hadjar",
+      "code": "HAD",
+      "team": "Red Bull",
+      "nationality": "French",
+      "points": 42,
+      "gap": "\u2212129",
+      "teamColor": "redbull",
       "isLeader": false
     },
     {
@@ -133,8 +133,8 @@
       "code": "GAS",
       "team": "Alpine F1 Team",
       "nationality": "French",
-      "points": 16,
-      "gap": "\u221284",
+      "points": 41,
+      "gap": "\u2212130",
       "teamColor": "alpine",
       "isLeader": false
     },
@@ -144,8 +144,8 @@
       "code": "LAW",
       "team": "RB F1 Team",
       "nationality": "New Zealander",
-      "points": 10,
-      "gap": "\u221290",
+      "points": 30,
+      "gap": "\u2212141",
       "teamColor": "racingbulls",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 180,
+      "points": 302,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,56 +163,56 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 110,
-      "barPct": 61,
+      "points": 204,
+      "barPct": 68,
       "teamColor": "ferrari"
     },
     {
       "pos": 3,
       "name": "McLaren",
       "nationality": "British",
-      "points": 94,
-      "barPct": 52,
+      "points": 159,
+      "barPct": 53,
       "teamColor": "mclaren"
     },
     {
       "pos": 4,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 30,
-      "barPct": 17,
+      "points": 115,
+      "barPct": 38,
       "teamColor": "redbull"
     },
     {
       "pos": 5,
       "name": "Alpine F1 Team",
       "nationality": "French",
-      "points": 23,
-      "barPct": 13,
+      "points": 57,
+      "barPct": 19,
       "teamColor": "alpine"
     },
     {
       "pos": 6,
-      "name": "Haas F1 Team",
-      "nationality": "American",
-      "points": 18,
-      "barPct": 10,
-      "teamColor": "haas"
+      "name": "RB F1 Team",
+      "nationality": "Italian",
+      "points": 44,
+      "barPct": 15,
+      "teamColor": "racingbulls"
     },
     {
       "pos": 7,
-      "name": "RB F1 Team",
-      "nationality": "Italian",
-      "points": 14,
-      "barPct": 8,
-      "teamColor": "racingbulls"
+      "name": "Haas F1 Team",
+      "nationality": "American",
+      "points": 21,
+      "barPct": 7,
+      "teamColor": "haas"
     },
     {
       "pos": 8,
       "name": "Williams",
       "nationality": "British",
-      "points": 5,
-      "barPct": 3,
+      "points": 11,
+      "barPct": 4,
       "teamColor": "williams"
     },
     {
@@ -225,19 +225,19 @@
     },
     {
       "pos": 10,
+      "name": "Aston Martin",
+      "nationality": "British",
+      "points": 1,
+      "barPct": 0,
+      "teamColor": "aston"
+    },
+    {
+      "pos": 11,
       "name": "Cadillac F1 Team",
       "nationality": "American",
       "points": 0,
       "barPct": 0,
       "teamColor": "cadillac"
-    },
-    {
-      "pos": 11,
-      "name": "Aston Martin",
-      "nationality": "British",
-      "points": 0,
-      "barPct": 0,
-      "teamColor": "aston"
     }
   ],
   "calendar": [
@@ -283,7 +283,8 @@
       "circuit": "Circuit Gilles Villeneuve",
       "country": "Canada",
       "date": "2026-05-24",
-      "status": "next"
+      "status": "done",
+      "winner": "A. Antonelli"
     },
     {
       "round": 6,
@@ -291,7 +292,8 @@
       "circuit": "Circuit de Monaco",
       "country": "Monaco",
       "date": "2026-06-07",
-      "status": "upcoming"
+      "status": "done",
+      "winner": "A. Antonelli"
     },
     {
       "round": 7,
@@ -299,7 +301,8 @@
       "circuit": "Circuit de Barcelona-Catalunya",
       "country": "Spain",
       "date": "2026-06-14",
-      "status": "upcoming"
+      "status": "done",
+      "winner": "L. Hamilton"
     },
     {
       "round": 8,
@@ -307,7 +310,8 @@
       "circuit": "Red Bull Ring",
       "country": "Austria",
       "date": "2026-06-28",
-      "status": "upcoming"
+      "status": "done",
+      "winner": "G. Russell"
     },
     {
       "round": 9,
@@ -315,7 +319,7 @@
       "circuit": "Silverstone Circuit",
       "country": "UK",
       "date": "2026-07-05",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 10,
@@ -421,5 +425,16 @@
       "date": "2026-12-06",
       "status": "upcoming"
     }
-  ]
+  ],
+  "fastestLap": {
+    "time": "1:10.374",
+    "driver": "ANT",
+    "team": "Mercedes",
+    "race": "Austrian Grand Prix"
+  },
+  "fastestPitStop": {
+    "duration": "21.020",
+    "team": "Ferrari",
+    "race": "Austrian Grand Prix"
+  }
 }
