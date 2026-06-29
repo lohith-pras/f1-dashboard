@@ -172,4 +172,3 @@ f1-dash/
 │   └── workflows/
 │       └── update_standings.yml   # Daily cron to refresh standings.json
 └── .fastf1-cache/             # FastF1 telemetry cache (gitignored, auto-created)
-```
