@@ -25,6 +25,13 @@ from datetime import datetime, timezone
 BASE = "https://api.jolpi.ca/ergast/f1/current"
 
 
+def _pit_duration(ps: dict) -> float:
+    try:
+        return float(ps.get("duration", ""))
+    except (ValueError, TypeError):
+        return float("inf")
+
+
 def fetch(path: str) -> dict:
     url = f"{BASE}/{path}"
     print(f"  → GET {url}")
@@ -159,14 +166,7 @@ def build_snapshot() -> dict:
         if pit_races:
             pit_stops = pit_races[0].get("PitStops", [])
             if pit_stops:
-                # Find the pit stop with minimum duration (duration is a string in seconds)
-                def pit_duration(ps):
-                    try:
-                        return float(ps.get("duration", "999"))
-                    except (ValueError, TypeError):
-                        return 999.0
-
-                best = min(pit_stops, key=pit_duration)
+                best = min(pit_stops, key=_pit_duration)
                 # Map driverId → team name using driver standings data
                 driver_id_to_team = {}
                 for d in ds_list:

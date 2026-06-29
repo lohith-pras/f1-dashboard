@@ -44,6 +44,7 @@ import fastf1.plotting
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 # ── Cache setup ───────────────────────────────────────────────────────────────
 CACHE_DIR = os.path.join(os.path.dirname(__file__), ".fastf1-cache")
@@ -58,10 +59,24 @@ app = FastAPI(title="F1 Pit Wall – Local Telemetry Server", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # permissive: static dashboard opens from file:// or GitHub Pages
+    # Restrict to local origins: file:// sends "null", localhost variants for dev servers
+    allow_origins=["null", "http://localhost", "http://localhost:8765",
+                   "http://127.0.0.1", "http://127.0.0.1:8765"],
     allow_methods=["GET"],
     allow_headers=["*"],
 )
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+@app.get("/")
+async def serve_dashboard():
+    return FileResponse(os.path.join(BASE_DIR, "lohith_f1_dashboard.html"))
+
+
+@app.get("/standings.json")
+async def serve_standings():
+    return FileResponse(os.path.join(BASE_DIR, "standings.json"), media_type="application/json")
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -528,6 +543,6 @@ def get_replay_frames(year: int, round_num: int, session: str):
 
 if __name__ == "__main__":
     print("🏎  F1 Pit Wall — Local Telemetry Server")
-    print("   Listening on http://127.0.0.1:8765")
+    print("   Dashboard → http://127.0.0.1:8765")
     print("   Press Ctrl+C to stop\n")
     uvicorn.run(app, host="127.0.0.1", port=8765)
