@@ -38,6 +38,7 @@ import logging
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
+import numpy as np
 import fastf1
 import fastf1.plotting
 import uvicorn
@@ -396,8 +397,6 @@ def get_replay_frames(year: int, round_num: int, session: str):
         # on track and would show every driver at the origin.
         driver_traces = {}  # driver_code → DataFrame with SessionTime_s (float), X, Y pre-computed
 
-        import numpy as np
-
         for driver_num in sess.drivers:
             try:
                 drv_info = sess.get_driver(driver_num)
@@ -451,7 +450,7 @@ def get_replay_frames(year: int, round_num: int, session: str):
                 team_colors[code] = "#ffffff"
 
         # ── Derive track bounds from all position data ────────────────────────
-        # Use only on-track coordinates (zeros already filtered above)
+        # Use only on-track coordinates (X=0,Y=0 already filtered above)
         all_x, all_y = [], []
         for df in driver_traces.values():
             all_x.extend(df["X"].tolist())
