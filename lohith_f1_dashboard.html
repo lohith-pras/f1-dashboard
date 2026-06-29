@@ -2563,41 +2563,15 @@
 
         <div class="news-block">
           <article class="news-item lead">
-            <div class="news-meta"><span class="news-kicker">The Story</span><span class="news-num">01</span></div>
-            <h3 class="news-headline">Antonelli's rookie surge rewrites Mercedes' championship math</h3>
-            <p class="news-body">Three rounds in, the 19-year-old Italian has back-to-back wins and sits atop the
-              drivers' table. Wolff has already shifted team orders mid-weekend. Russell now races his own teammate for
-              the title.</p>
-          </article>
-          <article class="news-item neutral">
-            <div class="news-meta"><span class="news-kicker">Engine Wars</span><span class="news-num">02</span></div>
-            <h3 class="news-headline">Red Bull's new PU is down 15hp to Mercedes, paddock sources say</h3>
-            <p class="news-body">Despite the full Ford works programme, Red Bull's 2026 power unit appears weakest on
-              the grid. Verstappen's P5 in Japan came from chassis, not pace.</p>
-          </article>
-          <article class="news-item neutral">
-            <div class="news-meta"><span class="news-kicker">Debut</span><span class="news-num">03</span></div>
-            <h3 class="news-headline">Cadillac goal is simple: finish races, learn fast, build for 2029</h3>
-            <p class="news-body">GM's eleventh team runs Ferrari PUs until its in-house unit is ready. Herta confirmed
-              for four FP1 outings this year.</p>
-          </article>
-          <article class="news-item">
-            <div class="news-meta"><span class="news-kicker">Calendar</span><span class="news-num">04</span></div>
-            <h3 class="news-headline">FIA confirms Bahrain and Saudi cancellations, no replacements</h3>
-            <p class="news-body">Iran war fallout leaves the season at 23 rounds, Australia to Abu Dhabi. Feeder series
-              affected too.</p>
+            <div class="news-meta"><span class="news-kicker">Race Result</span><span class="news-num">01</span></div>
+            <h3 class="news-headline" id="recentRaceHeadline">Antonelli wins the Japanese Grand Prix</h3>
+            <p class="news-body" id="recentRaceBody">P1 Kimi Antonelli (1:28:14.802) · P2 George Russell (+3.441) · P3 Charles Leclerc (+9.127)</p>
           </article>
         </div>
       </div>
 
     </div>
   </section>
-
-
-  </div>
-  </div>
-  </section>
-  <!-- END GO LIVE SECTION -->
 
   <section class="stats-ribbon">
     <div class="stats-grid">
@@ -2620,6 +2594,70 @@
         <div class="stat-label">Verstappen Gap</div>
         <div class="stat-big">P9 <em>·</em> −60</div>
         <div class="stat-sub">Worst start since 2017</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="datastatus-section">
+    <div class="datastatus-card" id="dataStatusCard">
+      <div class="datastatus-stripe"></div>
+
+      <div class="datastatus-left">
+        <div>
+          <div class="datastatus-eyebrow">Live Data Pipeline</div>
+          <div class="datastatus-title">Data <em>Status</em></div>
+          <div class="datastatus-lede">Standings auto-fetched from the Ergast API after each race weekend and committed to the repo by a scheduled GitHub Action.</div>
+        </div>
+        <div class="datastatus-sync-wrap">
+          <div class="datastatus-sync-label">Last synced</div>
+          <div class="datastatus-sync-time" id="syncTime">—</div>
+          <div class="datastatus-sync-ago" id="syncAgo">checking…</div>
+        </div>
+      </div>
+
+      <div class="datastatus-right">
+        <div class="datastatus-stack-head">Pipeline · 4 steps</div>
+        <div class="datastatus-pipeline">
+          <div class="datastatus-pipe-row">
+            <div class="pipe-num">01</div>
+            <div class="pipe-body">
+              <div class="pipe-head">GitHub Actions cron</div>
+              <div class="pipe-sub">Triggers after each race weekend</div>
+            </div>
+            <div class="pipe-badge cron">Cron</div>
+          </div>
+          <div class="datastatus-pipe-row">
+            <div class="pipe-num">02</div>
+            <div class="pipe-body">
+              <div class="pipe-head">Ergast F1 API</div>
+              <div class="pipe-sub">Drivers · constructors · schedule</div>
+            </div>
+            <div class="pipe-badge api">API</div>
+          </div>
+          <div class="datastatus-pipe-row">
+            <div class="pipe-num">03</div>
+            <div class="pipe-body">
+              <div class="pipe-head">fetch_standings.py</div>
+              <div class="pipe-sub">Parses and writes standings.json</div>
+            </div>
+            <div class="pipe-badge ok">OK</div>
+          </div>
+          <div class="datastatus-pipe-row">
+            <div class="pipe-num">04</div>
+            <div class="pipe-body">
+              <div class="pipe-head">hydrateLiveData()</div>
+              <div class="pipe-sub">Injects live standings into DOM</div>
+            </div>
+            <div class="pipe-badge ok" id="hydrationBadge">OK</div>
+          </div>
+        </div>
+
+        <div class="datastatus-actions">
+          <div class="datastatus-fetched-note" id="fetchedNote">standings.json · auto-committed after each race</div>
+          <button id="refreshBtn" class="datastatus-btn datastatus-btn-primary" onclick="pitWallRefresh()">
+            <span class="btn-icon">↻</span> Refresh Data
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -2942,6 +2980,50 @@
         if (statLeadBig) statLeadBig.innerHTML = `<em>+${lead}</em> pts`;
         const statLeadSub = document.querySelector('.stat:nth-child(1) .stat-sub');
         if (statLeadSub) statLeadSub.textContent = `${data.drivers[0].name} over ${data.drivers[1].name}`;
+      }
+
+      // Stat 2 — Fastest Lap
+      if (data.fastestLap) {
+        const fl = data.fastestLap;
+        const stat2Big = document.querySelector('.stat:nth-child(2) .stat-big');
+        if (stat2Big) stat2Big.textContent = fl.time;
+        const stat2Sub = document.querySelector('.stat:nth-child(2) .stat-sub');
+        if (stat2Sub) stat2Sub.textContent = `${fl.driver} · ${fl.race}`;
+      }
+
+      // Stat 3 — Fastest Pit Stop
+      if (data.fastestPitStop) {
+        const fps = data.fastestPitStop;
+        const stat3Big = document.querySelector('.stat:nth-child(3) .stat-big');
+        if (stat3Big) stat3Big.innerHTML = `${fps.duration}<em>s</em>`;
+        const stat3Sub = document.querySelector('.stat:nth-child(3) .stat-sub');
+        if (stat3Sub) stat3Sub.textContent = `${fps.team} · ${fps.race}`;
+      }
+
+      // Stat 4 — Verstappen Gap
+      if (data.drivers && data.drivers.length) {
+        const ver = data.drivers.find(d => d.code === 'VER');
+        if (ver) {
+          const stat4Big = document.querySelector('.stat:nth-child(4) .stat-big');
+          if (stat4Big) stat4Big.innerHTML = `P${ver.pos} <em>·</em> ${ver.gap}`;
+          const stat4Sub = document.querySelector('.stat:nth-child(4) .stat-sub');
+          if (stat4Sub) stat4Sub.textContent = 'Gap to leader';
+        }
+      }
+
+      // ── 7b. Recent Race block ─────────────────────────────────────────────────
+      if (data.lastRace && data.lastRace.podium && data.lastRace.podium.length) {
+        const lr = data.lastRace;
+        const p = lr.podium;
+        const headlineEl = document.getElementById('recentRaceHeadline');
+        if (headlineEl && p[0]) {
+          headlineEl.textContent = `${p[0].driver} wins the ${lr.name}`;
+        }
+        const bodyEl = document.getElementById('recentRaceBody');
+        if (bodyEl) {
+          const parts = p.map((r, i) => `P${i + 1} ${r.driver} (${r.time})`);
+          bodyEl.textContent = parts.join(' · ');
+        }
       }
 
       // ── 8. Data Status panel ──────────────────────────────────────────────────
