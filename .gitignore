@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# FastF1 telemetry cache (can be large, regenerated automatically)
+.fastf1-cache/
