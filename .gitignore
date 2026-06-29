@@ -11,3 +11,9 @@ wheels/
 
 # FastF1 telemetry cache (can be large, regenerated automatically)
 .fastf1-cache/
+
+# macOS
+.DS_Store
+
+# Claude Code local
+.claude/
