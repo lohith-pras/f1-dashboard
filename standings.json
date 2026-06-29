@@ -425,5 +425,16 @@
       "date": "2026-12-06",
       "status": "upcoming"
     }
-  ]
+  ],
+  "fastestLap": {
+    "time": "1:10.374",
+    "driver": "ANT",
+    "team": "Mercedes",
+    "race": "Austrian Grand Prix"
+  },
+  "fastestPitStop": {
+    "duration": "21.020",
+    "team": "Ferrari",
+    "race": "Austrian Grand Prix"
+  }
 }

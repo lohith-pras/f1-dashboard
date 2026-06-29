@@ -1,11 +1,119 @@
 name: Update F1 Standings
 
 on:
-  # Run every day at 18:00 UTC (covers most Sunday race finish times)
-  # and again at 22:00 UTC for late-finishing night races (Singapore, Las Vegas)
+  # Runs on race day (Sun) and sprint/qualifying day (Sat) for every 2026 round.
+  # Two UTC slots per day: 15:00 (covers Europe/Asia) and 23:00 (covers Americas/night races).
   schedule:
-    - cron: "0 18 * * *"
-    - cron: "0 22 * * *"
+    # ── Round 1 · Australian GP ──────────────────────────────────────────
+    - cron: "0 15 7 3 *"   # Sat 2026-03-07
+    - cron: "0 23 7 3 *"
+    - cron: "0 15 8 3 *"   # Sun 2026-03-08 (race)
+    - cron: "0 23 8 3 *"
+    # ── Round 2 · Chinese GP ─────────────────────────────────────────────
+    - cron: "0 15 14 3 *"  # Sat 2026-03-14
+    - cron: "0 23 14 3 *"
+    - cron: "0 15 15 3 *"  # Sun 2026-03-15 (race)
+    - cron: "0 23 15 3 *"
+    # ── Round 3 · Japanese GP ────────────────────────────────────────────
+    - cron: "0 15 28 3 *"  # Sat 2026-03-28
+    - cron: "0 23 28 3 *"
+    - cron: "0 15 29 3 *"  # Sun 2026-03-29 (race)
+    - cron: "0 23 29 3 *"
+    # ── Round 4 · Miami GP ───────────────────────────────────────────────
+    - cron: "0 15 2 5 *"   # Sat 2026-05-02
+    - cron: "0 23 2 5 *"
+    - cron: "0 15 3 5 *"   # Sun 2026-05-03 (race)
+    - cron: "0 23 3 5 *"
+    # ── Round 5 · Canadian GP ────────────────────────────────────────────
+    - cron: "0 15 23 5 *"  # Sat 2026-05-23
+    - cron: "0 23 23 5 *"
+    - cron: "0 15 24 5 *"  # Sun 2026-05-24 (race)
+    - cron: "0 23 24 5 *"
+    # ── Round 6 · Monaco GP ──────────────────────────────────────────────
+    - cron: "0 15 6 6 *"   # Sat 2026-06-06
+    - cron: "0 23 6 6 *"
+    - cron: "0 15 7 6 *"   # Sun 2026-06-07 (race)
+    - cron: "0 23 7 6 *"
+    # ── Round 7 · Barcelona GP ───────────────────────────────────────────
+    - cron: "0 15 13 6 *"  # Sat 2026-06-13
+    - cron: "0 23 13 6 *"
+    - cron: "0 15 14 6 *"  # Sun 2026-06-14 (race)
+    - cron: "0 23 14 6 *"
+    # ── Round 8 · Austrian GP ────────────────────────────────────────────
+    - cron: "0 15 27 6 *"  # Sat 2026-06-27
+    - cron: "0 23 27 6 *"
+    - cron: "0 15 28 6 *"  # Sun 2026-06-28 (race)
+    - cron: "0 23 28 6 *"
+    # ── Round 9 · British GP ─────────────────────────────────────────────
+    - cron: "0 15 4 7 *"   # Sat 2026-07-04
+    - cron: "0 23 4 7 *"
+    - cron: "0 15 5 7 *"   # Sun 2026-07-05 (race)
+    - cron: "0 23 5 7 *"
+    # ── Round 10 · Belgian GP ────────────────────────────────────────────
+    - cron: "0 15 18 7 *"  # Sat 2026-07-18
+    - cron: "0 23 18 7 *"
+    - cron: "0 15 19 7 *"  # Sun 2026-07-19 (race)
+    - cron: "0 23 19 7 *"
+    # ── Round 11 · Hungarian GP ──────────────────────────────────────────
+    - cron: "0 15 25 7 *"  # Sat 2026-07-25
+    - cron: "0 23 25 7 *"
+    - cron: "0 15 26 7 *"  # Sun 2026-07-26 (race)
+    - cron: "0 23 26 7 *"
+    # ── Round 12 · Dutch GP ──────────────────────────────────────────────
+    - cron: "0 15 22 8 *"  # Sat 2026-08-22
+    - cron: "0 23 22 8 *"
+    - cron: "0 15 23 8 *"  # Sun 2026-08-23 (race)
+    - cron: "0 23 23 8 *"
+    # ── Round 13 · Italian GP ────────────────────────────────────────────
+    - cron: "0 15 5 9 *"   # Sat 2026-09-05
+    - cron: "0 23 5 9 *"
+    - cron: "0 15 6 9 *"   # Sun 2026-09-06 (race)
+    - cron: "0 23 6 9 *"
+    # ── Round 14 · Spanish GP ────────────────────────────────────────────
+    - cron: "0 15 12 9 *"  # Sat 2026-09-12
+    - cron: "0 23 12 9 *"
+    - cron: "0 15 13 9 *"  # Sun 2026-09-13 (race)
+    - cron: "0 23 13 9 *"
+    # ── Round 15 · Azerbaijan GP ─────────────────────────────────────────
+    - cron: "0 15 25 9 *"  # Sat 2026-09-25
+    - cron: "0 23 25 9 *"
+    - cron: "0 15 26 9 *"  # Sun 2026-09-26 (race)
+    - cron: "0 23 26 9 *"
+    # ── Round 16 · Singapore GP ──────────────────────────────────────────
+    - cron: "0 15 10 10 *" # Sat 2026-10-10
+    - cron: "0 23 10 10 *"
+    - cron: "0 15 11 10 *" # Sun 2026-10-11 (race)
+    - cron: "0 23 11 10 *"
+    # ── Round 17 · United States GP ──────────────────────────────────────
+    - cron: "0 15 24 10 *" # Sat 2026-10-24
+    - cron: "0 23 24 10 *"
+    - cron: "0 15 25 10 *" # Sun 2026-10-25 (race)
+    - cron: "0 23 25 10 *"
+    # ── Round 18 · Mexico City GP ────────────────────────────────────────
+    - cron: "0 15 31 10 *" # Sat 2026-10-31
+    - cron: "0 23 31 10 *"
+    - cron: "0 15 1 11 *"  # Sun 2026-11-01 (race)
+    - cron: "0 23 1 11 *"
+    # ── Round 19 · Brazilian GP ──────────────────────────────────────────
+    - cron: "0 15 7 11 *"  # Sat 2026-11-07
+    - cron: "0 23 7 11 *"
+    - cron: "0 15 8 11 *"  # Sun 2026-11-08 (race)
+    - cron: "0 23 8 11 *"
+    # ── Round 20 · Las Vegas GP ──────────────────────────────────────────
+    - cron: "0 15 21 11 *" # Sat 2026-11-21
+    - cron: "0 23 21 11 *"
+    - cron: "0 15 22 11 *" # Sun 2026-11-22 (race)
+    - cron: "0 23 22 11 *"
+    # ── Round 21 · Qatar GP ──────────────────────────────────────────────
+    - cron: "0 15 28 11 *" # Sat 2026-11-28
+    - cron: "0 23 28 11 *"
+    - cron: "0 15 29 11 *" # Sun 2026-11-29 (race)
+    - cron: "0 23 29 11 *"
+    # ── Round 22 · Abu Dhabi GP ──────────────────────────────────────────
+    - cron: "0 15 5 12 *"  # Sat 2026-12-05
+    - cron: "0 23 5 12 *"
+    - cron: "0 15 6 12 *"  # Sun 2026-12-06 (race)
+    - cron: "0 23 6 12 *"
 
   # Always allow a manual trigger from the Actions tab
   workflow_dispatch:

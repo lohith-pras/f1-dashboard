@@ -25,6 +25,13 @@ from datetime import datetime, timezone
 BASE = "https://api.jolpi.ca/ergast/f1/current"
 
 
+def _pit_duration(ps: dict) -> float:
+    try:
+        return float(ps.get("duration", ""))
+    except (ValueError, TypeError):
+        return float("inf")
+
+
 def fetch(path: str) -> dict:
     url = f"{BASE}/{path}"
     print(f"  → GET {url}")
@@ -107,13 +114,14 @@ def build_snapshot() -> dict:
             "teamColor": TEAM_COLOR.get(con_id, "ink-3"),
         })
 
-    # ── Last race result (podium) ─────────────────────────────────────────────
+    # ── Last race result (podium + fastest lap) ───────────────────────────────
     last_data = fetch("last/results.json")
     races = last_data["MRData"]["RaceTable"]["Races"]
     podium = []
     last_race_name = ""
     last_race_circuit = ""
     last_race_round = 0
+    fastest_lap = None
 
     if races:
         race = races[0]
@@ -135,6 +143,46 @@ def build_snapshot() -> dict:
                 "number": drv.get("permanentNumber", ""),
                 "time":   time_val if pos == 1 else f"+{time_val}" if time_val and not time_val.startswith("+") else time_val,
             })
+
+        # Fastest lap — find the result entry with FastestLap.rank == "1"
+        for res in race.get("Results", []):
+            fl = res.get("FastestLap", {})
+            if fl.get("rank") == "1":
+                drv = res["Driver"]
+                con = res["Constructor"]
+                fastest_lap = {
+                    "time":   fl.get("Time", {}).get("time", ""),
+                    "driver": drv.get("code", drv.get("familyName", "")[:3].upper()),
+                    "team":   con.get("name", ""),
+                    "race":   last_race_name,
+                }
+                break
+
+    # ── Fastest pit stop ─────────────────────────────────────────────────────
+    fastest_pit_stop = None
+    try:
+        pit_data = fetch("last/pitstops.json?limit=100")
+        pit_races = pit_data["MRData"]["RaceTable"]["Races"]
+        if pit_races:
+            pit_stops = pit_races[0].get("PitStops", [])
+            if pit_stops:
+                best = min(pit_stops, key=_pit_duration)
+                # Map driverId → team name using driver standings data
+                driver_id_to_team = {}
+                for d in ds_list:
+                    drv_id = d["Driver"].get("driverId", "")
+                    con = d["Constructors"][-1] if d["Constructors"] else {}
+                    driver_id_to_team[drv_id] = con.get("name", "")
+
+                team_name = driver_id_to_team.get(best.get("driverId", ""), "")
+                fastest_pit_stop = {
+                    "duration": best.get("duration", ""),
+                    "team":     team_name,
+                    "race":     last_race_name,
+                }
+    except Exception as exc:
+        print(f"  ⚠  Pit stop data unavailable: {exc}")
+        fastest_pit_stop = None
 
     # ── Next race ─────────────────────────────────────────────────────────────
     next_data = fetch("next.json")
@@ -194,10 +242,12 @@ def build_snapshot() -> dict:
             "circuit": last_race_circuit,
             "podium":  podium,
         },
-        "nextRace":       next_race,
-        "drivers":        drivers,
-        "constructors":   constructors,
-        "calendar":       calendar,
+        "nextRace":         next_race,
+        "drivers":          drivers,
+        "constructors":     constructors,
+        "calendar":         calendar,
+        "fastestLap":       fastest_lap,
+        "fastestPitStop":   fastest_pit_stop,
     }
 
     return snapshot
