@@ -1975,9 +1975,660 @@
       }
     }
   </style>
+
+  <!-- ================================================================
+     LIVE MODE OVERLAY — CSS (F5)
+     Appended after existing styles; reuses all :root tokens.
+     ================================================================ -->
+  <style>
+    /* ── LIVE trigger button ──────────────────────────────────────── */
+    .live-trigger {
+      position: fixed;
+      top: 52px; /* just below the ticker bar (44px) */
+      right: 20px;
+      z-index: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px 8px 12px;
+      background: var(--carbon-2);
+      border: 1px solid var(--rule-light);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .live-trigger:hover {
+      border-color: var(--racing);
+      color: var(--ink);
+      background: var(--carbon-3);
+    }
+
+    .live-trigger:focus-visible {
+      outline: 2px solid var(--racing);
+      outline-offset: 2px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ink-3);
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+
+    .live-trigger.is-live .live-dot {
+      background: var(--ferrari);
+      animation: pulseDot 1.4s ease-in-out infinite;
+    }
+
+    .live-trigger.is-live {
+      border-color: var(--ferrari);
+      color: var(--ink);
+    }
+
+    /* ── Full-screen overlay shell ────────────────────────────────── */
+    .live-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--carbon);
+      border-top: 2px solid var(--ferrari);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .live-overlay[hidden] {
+      display: none;
+    }
+
+    /* Overlay header */
+    .live-overlay-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 24px;
+      background: var(--carbon-2);
+      border-bottom: 1px solid var(--rule-light);
+      flex-shrink: 0;
+    }
+
+    .live-overlay-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ferrari);
+      flex-shrink: 0;
+    }
+
+    /* Tab switcher */
+    .live-tabs {
+      display: flex;
+      gap: 2px;
+      background: var(--carbon-3);
+      border-radius: 4px;
+      padding: 3px;
+      margin-left: 8px;
+    }
+
+    .live-tab-btn {
+      padding: 5px 18px;
+      border: none;
+      border-radius: 3px;
+      background: transparent;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .live-tab-btn:hover {
+      color: var(--ink-2);
+    }
+
+    .live-tab-btn.active {
+      background: var(--carbon-2);
+      color: var(--ink);
+    }
+
+    /* Close button */
+    .live-overlay-close {
+      margin-left: auto;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid var(--rule-light);
+      border-radius: 4px;
+      font-size: 16px;
+      color: var(--ink-3);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .live-overlay-close:hover {
+      border-color: var(--ferrari);
+      color: var(--ink);
+    }
+
+    /* Overlay body */
+    .live-overlay-body {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Pane: shared ─────────────────────────────────────────────── */
+    .live-pane {
+      display: none;
+      flex: 1;
+      padding: 28px 32px;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .live-pane.active {
+      display: flex;
+    }
+
+    /* State messages */
+    .live-state-msg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      text-align: center;
+      gap: 14px;
+      min-height: 200px;
+    }
+
+    .live-state-icon {
+      font-size: 36px;
+      opacity: 0.5;
+    }
+
+    .live-state-heading {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+    }
+
+    .live-state-body {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--ink-3);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .live-state-body code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: var(--carbon-3);
+      border: 1px solid var(--rule-light);
+      border-radius: 3px;
+      padding: 2px 8px;
+      color: var(--gold);
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    /* Session info bar (shown when live + active) */
+    .live-session-info {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      border-bottom: 1px solid var(--rule-light);
+      padding-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .live-session-badge {
+      padding: 3px 10px;
+      background: var(--ferrari);
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: .2em;
+    }
+
+    /* ── LIVE pane — timing table ─────────────────────────────────── */
+    .timing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .timing-table th {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-align: left;
+      padding: 6px 12px 10px;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .timing-table th:not(:first-child) {
+      text-align: right;
+    }
+
+    .timing-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid oklch(22% 0.008 250 / 0.5);
+      vertical-align: middle;
+      text-align: right;
+    }
+
+    .timing-table td:first-child {
+      text-align: left;
+    }
+
+    .timing-table tbody tr {
+      transition: background 0.1s;
+    }
+
+    .timing-table tbody tr:hover {
+      background: var(--carbon-3);
+    }
+
+    .timing-col-pos {
+      color: var(--ink-3);
+      font-size: 11px;
+      min-width: 32px;
+    }
+
+    .timing-col-driver {
+      font-weight: 700;
+      letter-spacing: .10em;
+      color: var(--ink);
+      padding-left: 16px !important; /* indent for team color border */
+    }
+
+    .timing-col-driver-cell {
+      border-left: 3px solid var(--rule-light); /* overridden per-row by JS */
+    }
+
+    .timing-col-gap {
+      color: var(--ink-2);
+    }
+
+    .timing-col-tyre {
+      color: var(--ink-2);
+      font-size: 12px;
+    }
+
+    .tyre-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tyre-letter {
+      font-weight: 700;
+    }
+
+    .tyre-letter.S { color: var(--ferrari); }
+    .tyre-letter.M { color: var(--gold); }
+    .tyre-letter.H { color: var(--ink-2); }
+    .tyre-letter.I { color: var(--racing); }
+    .tyre-letter.W { color: var(--williams); }
+
+    .tyre-age {
+      color: var(--ink-3);
+      font-size: 10px;
+    }
+
+    .timing-col-lap {
+      color: var(--racing-hot);
+    }
+
+    /* ── REPLAY pane ─────────────────────────────────────────────── */
+    .replay-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .replay-select {
+      flex: 1;
+      min-width: 200px;
+      max-width: 420px;
+      padding: 8px 12px;
+      background: var(--carbon-3);
+      border: 1px solid var(--rule-light);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .replay-select:focus {
+      outline: 1px solid var(--racing);
+    }
+
+    .replay-select option {
+      background: var(--carbon-3);
+    }
+
+    .replay-btn {
+      padding: 8px 20px;
+      background: var(--racing);
+      border: none;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      flex-shrink: 0;
+    }
+
+    .replay-btn:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    .replay-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    .replay-btn.secondary {
+      background: var(--carbon-3);
+      border: 1px solid var(--rule-light);
+      color: var(--ink-2);
+    }
+
+    .replay-btn.secondary:hover:not(:disabled) {
+      border-color: var(--racing);
+      color: var(--ink);
+    }
+
+    /* Loading state */
+    .replay-loading {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-3);
+      padding: 12px 0;
+    }
+
+    .replay-loading.visible { display: flex; }
+
+    .replay-spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--rule-light);
+      border-top-color: var(--racing);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Canvas area */
+    .replay-canvas-wrap {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .replay-canvas-wrap.visible { display: flex; }
+
+    .replay-canvas {
+      display: block;
+      width: 100%;
+      max-width: 860px;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      background: var(--carbon-2);
+      border: 1px solid var(--rule-light);
+      border-radius: 4px;
+      align-self: center;
+    }
+
+    /* Playback row */
+    .replay-playback-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 860px;
+      align-self: center;
+      width: 100%;
+    }
+
+    .replay-playpause {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--carbon-3);
+      border: 1px solid var(--rule-light);
+      border-radius: 4px;
+      color: var(--ink-2);
+      cursor: pointer;
+      font-size: 14px;
+      flex-shrink: 0;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .replay-playpause:hover {
+      border-color: var(--racing);
+      color: var(--ink);
+    }
+
+    .replay-scrubber {
+      flex: 1;
+      min-width: 100px;
+      accent-color: var(--racing);
+      cursor: pointer;
+    }
+
+    .replay-time {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: .06em;
+      min-width: 80px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .replay-speed-btns {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .replay-speed-btn {
+      padding: 4px 10px;
+      background: transparent;
+      border: 1px solid var(--rule-light);
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--ink-3);
+      cursor: pointer;
+      transition: border-color 0.1s, color 0.1s, background 0.1s;
+    }
+
+    .replay-speed-btn:hover,
+    .replay-speed-btn.active {
+      border-color: var(--racing);
+      color: var(--ink);
+      background: var(--carbon-3);
+    }
+
+    /* ── Mobile ≤480px ────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .live-pane {
+        padding: 16px;
+        gap: 14px;
+      }
+
+      .live-overlay-header {
+        padding: 10px 14px;
+        gap: 10px;
+      }
+
+      .live-overlay-title {
+        font-size: 10px;
+      }
+
+      .live-tab-btn {
+        padding: 5px 12px;
+        font-size: 10px;
+      }
+
+      .timing-table {
+        font-size: 11px;
+      }
+
+      .timing-table th,
+      .timing-table td {
+        padding: 7px 8px;
+      }
+
+      .live-trigger {
+        top: 48px;
+        right: 10px;
+        padding: 6px 10px 6px 8px;
+        font-size: 10px;
+      }
+
+      .replay-controls {
+        gap: 8px;
+      }
+
+      .replay-select {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
+  <!-- ================================================================
+     F1 · LIVE trigger button
+     Fixed top-right, polls /session on load to show active state.
+     ================================================================ -->
+  <button id="liveModeBtn" class="live-trigger" aria-label="Open live mode" onclick="LiveMode.open()">
+    <span class="live-dot"></span> LIVE
+  </button>
+
+  <!-- ================================================================
+     F2 · Full-screen LIVE/REPLAY overlay shell
+     ================================================================ -->
+  <div id="liveOverlay" class="live-overlay" hidden aria-modal="true" role="dialog" aria-label="Pit Wall Live">
+
+    <!-- Header -->
+    <div class="live-overlay-header">
+      <span class="live-overlay-title">◆ Pit Wall Live</span>
+      <div class="live-tabs" role="tablist">
+        <button class="live-tab-btn active" id="tabLiveBtn" role="tab" aria-selected="true"
+          onclick="LiveMode.switchTab('live')">Live</button>
+        <button class="live-tab-btn" id="tabReplayBtn" role="tab" aria-selected="false"
+          onclick="LiveMode.switchTab('replay')">Replay</button>
+      </div>
+      <button class="live-overlay-close" id="liveOverlayClose" aria-label="Close overlay"
+        onclick="LiveMode.close()">✕</button>
+    </div>
+
+    <!-- Overlay body -->
+    <div class="live-overlay-body">
+
+      <!-- F3 · LIVE pane -->
+      <div class="live-pane active" id="livePane" role="tabpanel">
+        <!-- Populated by LiveMode.renderLivePane() -->
+      </div>
+
+      <!-- F4 · REPLAY pane -->
+      <div class="live-pane" id="replayPane" role="tabpanel">
+
+        <!-- Session picker -->
+        <div class="replay-controls">
+          <select id="replaySessionSelect" class="replay-select" aria-label="Select a session to replay">
+            <option value="">— Loading sessions… —</option>
+          </select>
+          <button id="replayLoadBtn" class="replay-btn" onclick="LiveMode.loadReplay()" disabled>Load</button>
+        </div>
+
+        <!-- Loading indicator -->
+        <div id="replayLoading" class="replay-loading" aria-live="polite">
+          <div class="replay-spinner"></div>
+          <span id="replayLoadingText">Loading telemetry… this can take a few seconds</span>
+        </div>
+
+        <!-- Canvas + playback controls (hidden until loaded) -->
+        <div id="replayCanvasWrap" class="replay-canvas-wrap">
+          <canvas id="replayCanvas" class="replay-canvas" width="860" height="645"
+            aria-label="Race replay animation"></canvas>
+
+          <div class="replay-playback-row">
+            <button class="replay-playpause" id="replayPlayPause" onclick="LiveMode.togglePlayPause()"
+              aria-label="Play / Pause">▶</button>
+            <input type="range" id="replayScrubber" class="replay-scrubber" min="0" value="0" step="1"
+              aria-label="Scrubber" oninput="LiveMode.onScrub(this.value)">
+            <span id="replayTimeDisplay" class="replay-time">0:00.000</span>
+            <div class="replay-speed-btns">
+              <button class="replay-speed-btn active" onclick="LiveMode.setSpeed(1)">1×</button>
+              <button class="replay-speed-btn" onclick="LiveMode.setSpeed(2)">2×</button>
+              <button class="replay-speed-btn" onclick="LiveMode.setSpeed(4)">4×</button>
+              <button class="replay-speed-btn" onclick="LiveMode.setSpeed(8)">8×</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /#replayPane -->
+
+    </div><!-- /.live-overlay-body -->
+  </div><!-- /#liveOverlay -->
 
   <div class="ticker-wrap">
     <div class="ticker-track" id="tkTrack"></div>
@@ -3105,6 +3756,689 @@
         }
       }
     };
+  </script>
+
+  <!-- ================================================================
+     LIVE MODE controller — F1·F2·F3·F4
+     All timers, intervals, and rAF handles are cleaned up on close.
+     The server (http://localhost:8765) is optional; every fetch is
+     wrapped in try/catch so the static dashboard never breaks.
+     ================================================================ -->
+  <script>
+    (() => {
+      'use strict';
+
+      const SERVER = 'http://localhost:8765';
+      const FETCH_TIMEOUT_MS = 4000;
+
+      // ── Team color lookup (3-letter code → CSS var name) ──────────
+      // Small lookup for the current 2026 grid; falls back to --racing.
+      const TEAM_COLORS = {
+        // Red Bull
+        VER: 'redbull', LAW: 'redbull',
+        // Ferrari
+        LEC: 'ferrari', HAM: 'ferrari',
+        // McLaren
+        NOR: 'mclaren', PIA: 'mclaren',
+        // Mercedes
+        RUS: 'mercedes', ANT: 'mercedes',
+        // Aston Martin
+        ALO: 'aston', STR: 'aston',
+        // Alpine
+        GAS: 'alpine', DOO: 'alpine',
+        // Racing Bulls
+        TSU: 'racingbulls', HAD: 'racingbulls',
+        // Haas
+        OCO: 'haas', BEA: 'haas',
+        // Williams
+        ALB: 'williams', SAI: 'williams',
+        // Audi
+        HUL: 'audi', BOR: 'audi',
+        // Cadillac
+        CAL: 'cadillac', KUB: 'cadillac',
+      };
+
+      function teamColor(code) {
+        const varName = TEAM_COLORS[code];
+        if (!varName) return 'var(--racing)';
+        return `var(--${varName})`;
+      }
+
+      // ── Fetch with timeout ─────────────────────────────────────────
+      async function fetchWithTimeout(url, ms = FETCH_TIMEOUT_MS) {
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), ms);
+        try {
+          const res = await fetch(url, { signal: ctrl.signal });
+          clearTimeout(tid);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return await res.json();
+        } catch (err) {
+          clearTimeout(tid);
+          throw err;
+        }
+      }
+
+      // ── Format t_ms as m:ss.mmm ────────────────────────────────────
+      function fmtMs(ms) {
+        const totalSec = Math.floor(ms / 1000);
+        const mins = Math.floor(totalSec / 60);
+        const secs = totalSec % 60;
+        const mill = ms % 1000;
+        return `${mins}:${String(secs).padStart(2, '0')}.${String(mill).padStart(3, '0')}`;
+      }
+
+      // ── State ──────────────────────────────────────────────────────
+      let liveInterval = null;   // polling interval id
+      let rafHandle = null;      // requestAnimationFrame handle
+      let replayFrames = null;   // loaded frames array
+      let replayCircuit = null;  // circuit metadata
+      let replayCurrentIdx = 0;  // current frame index
+      let replayPlaying = false;
+      let replaySpeed = 1;
+      let replayLastRafTs = null; // last rAF timestamp (ms)
+      let replayAccMs = 0;       // accumulated real-time ms since last frame advance
+      let activeTab = 'live';    // 'live' | 'replay'
+      let overlayOpen = false;
+
+      // ── DOM refs ───────────────────────────────────────────────────
+      const getEl = (id) => document.getElementById(id);
+
+      // ── F2 · Open / Close overlay ──────────────────────────────────
+      function openOverlay() {
+        overlayOpen = true;
+        const overlay = getEl('liveOverlay');
+        overlay.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        // Focus the close button for accessibility
+        getEl('liveOverlayClose').focus();
+        // Start the active tab
+        if (activeTab === 'live') {
+          startLiveTab();
+        } else {
+          startReplayTab();
+        }
+      }
+
+      function closeOverlay() {
+        overlayOpen = false;
+        const overlay = getEl('liveOverlay');
+        overlay.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        stopLivePolling();
+        stopReplayAnimation();
+        // Clear frames from memory to avoid leaks
+        replayFrames = null;
+        replayCircuit = null;
+        replayCurrentIdx = 0;
+        replayPlaying = false;
+      }
+
+      // Escape key handler
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlayOpen) closeOverlay();
+      });
+
+      // visibilitychange — pause polling when tab hidden
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopLivePolling();
+          if (replayPlaying) pauseReplay();
+        } else if (overlayOpen && activeTab === 'live') {
+          startLivePolling();
+        }
+      });
+
+      // ── F2 · Tab switching ─────────────────────────────────────────
+      function switchTab(tab) {
+        if (tab === activeTab) return;
+
+        // Deactivate old tab
+        stopLivePolling();
+        stopReplayAnimation();
+
+        activeTab = tab;
+
+        // Update tab buttons
+        getEl('tabLiveBtn').classList.toggle('active', tab === 'live');
+        getEl('tabLiveBtn').setAttribute('aria-selected', tab === 'live');
+        getEl('tabReplayBtn').classList.toggle('active', tab === 'replay');
+        getEl('tabReplayBtn').setAttribute('aria-selected', tab === 'replay');
+
+        // Update panes
+        getEl('livePane').classList.toggle('active', tab === 'live');
+        getEl('replayPane').classList.toggle('active', tab === 'replay');
+
+        if (tab === 'live') {
+          startLiveTab();
+        } else {
+          startReplayTab();
+        }
+      }
+
+      // ── F3 · LIVE tab ──────────────────────────────────────────────
+      function startLiveTab() {
+        pollLive(); // immediate first poll
+        startLivePolling();
+      }
+
+      function startLivePolling() {
+        stopLivePolling();
+        if (document.hidden) return;
+        liveInterval = setInterval(pollLive, 5000);
+      }
+
+      function stopLivePolling() {
+        if (liveInterval !== null) {
+          clearInterval(liveInterval);
+          liveInterval = null;
+        }
+      }
+
+      async function pollLive() {
+        if (!overlayOpen || activeTab !== 'live') {
+          stopLivePolling();
+          return;
+        }
+
+        let data;
+        try {
+          data = await fetchWithTimeout(`${SERVER}/live`);
+        } catch {
+          renderLiveOffline();
+          return;
+        }
+
+        if (!data.active) {
+          renderLiveInactive();
+        } else if (!data.drivers || data.drivers.length === 0) {
+          renderLiveWaiting(data.session_type);
+        } else {
+          renderLiveTable(data);
+        }
+      }
+
+      function renderLiveOffline() {
+        getEl('livePane').innerHTML = `
+          <div class="live-state-msg">
+            <div class="live-state-icon">📡</div>
+            <div class="live-state-heading">Live server offline</div>
+            <div class="live-state-body">
+              Start the server to enable live timing.<br>
+              <code>uv run live_server.py</code>
+            </div>
+          </div>`;
+      }
+
+      function renderLiveInactive() {
+        getEl('livePane').innerHTML = `
+          <div class="live-state-msg">
+            <div class="live-state-icon">🏁</div>
+            <div class="live-state-heading">No session running</div>
+            <div class="live-state-body">
+              Live timing appears during practice, qualifying, sprint, and race sessions.
+              Check back on race weekend.
+            </div>
+          </div>`;
+      }
+
+      function renderLiveWaiting(sessionType) {
+        const label = sessionType ? ` — ${sessionType}` : '';
+        getEl('livePane').innerHTML = `
+          <div class="live-state-msg">
+            <div class="live-state-icon">⏳</div>
+            <div class="live-state-heading">Session live${label}</div>
+            <div class="live-state-body">
+              Waiting for timing data… Live timing is best-effort and may take a moment to populate.
+            </div>
+          </div>`;
+      }
+
+      function renderLiveTable(data) {
+        const isRace = ['Race', 'Sprint'].includes(data.session_type);
+        const isQually = ['Qualifying', 'Sprint Qualifying'].includes(data.session_type);
+
+        const pane = getEl('livePane');
+        // Build header
+        let headerCols, rowFn;
+        if (isRace) {
+          headerCols = '<th>POS</th><th>Driver</th><th>Gap</th><th>Tyre</th><th>Last Lap</th>';
+          rowFn = (d) => {
+            const tyreHtml = d.tyre
+              ? `<span class="tyre-tag"><span class="tyre-letter ${d.tyre[0]}">${d.tyre[0]}</span><span class="tyre-age">${d.tyre_age != null ? d.tyre_age + 'L' : ''}</span></span>`
+              : '—';
+            return `
+              <tr>
+                <td class="timing-col-pos">${d.pos}</td>
+                <td class="timing-col-driver-cell" style="border-left-color:${teamColor(d.code)}">
+                  <span class="timing-col-driver">${d.code}</span>
+                </td>
+                <td class="timing-col-gap">${d.gap}</td>
+                <td class="timing-col-tyre">${tyreHtml}</td>
+                <td class="timing-col-lap">${d.last_lap || '—'}</td>
+              </tr>`;
+          };
+        } else {
+          // Qualifying / Practice / etc.
+          headerCols = '<th>POS</th><th>Driver</th><th>Gap</th><th>Best / Last</th>';
+          rowFn = (d) => `
+            <tr>
+              <td class="timing-col-pos">${d.pos}</td>
+              <td class="timing-col-driver-cell" style="border-left-color:${teamColor(d.code)}">
+                <span class="timing-col-driver">${d.code}</span>
+              </td>
+              <td class="timing-col-gap">${d.gap}</td>
+              <td class="timing-col-lap">${d.last_lap || '—'}</td>
+            </tr>`;
+        }
+
+        const rows = data.drivers.map(rowFn).join('');
+        pane.innerHTML = `
+          <div class="live-session-info">
+            <span class="live-session-badge">● LIVE</span>
+            <span>${data.session_type || 'Session'}</span>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="timing-table" aria-label="Live timing">
+              <thead><tr>${headerCols}</tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>`;
+      }
+
+      // ── F4 · REPLAY tab ────────────────────────────────────────────
+      async function startReplayTab() {
+        // If sessions already loaded, don't re-fetch
+        const sel = getEl('replaySessionSelect');
+        if (sel.options.length > 1) return; // already populated
+
+        sel.innerHTML = '<option value="">— Loading sessions… —</option>';
+        getEl('replayLoadBtn').disabled = true;
+
+        let sessions;
+        try {
+          sessions = await fetchWithTimeout(`${SERVER}/replay/sessions`, 8000);
+        } catch {
+          sel.innerHTML = '<option value="">— Server offline —</option>';
+          return;
+        }
+
+        if (!sessions || sessions.length === 0) {
+          sel.innerHTML = '<option value="">— No completed sessions yet —</option>';
+          return;
+        }
+
+        // Flatten to individual session entries
+        const options = [];
+        for (const event of sessions) {
+          for (const sname of event.sessions) {
+            const short = sname === 'Race' ? 'R'
+              : sname === 'Qualifying' ? 'Q'
+              : sname === 'Sprint' ? 'S'
+              : sname === 'Sprint Qualifying' ? 'SQ'
+              : sname.replace(/\D/g, '');
+            const label = `R${String(event.round).padStart(2, '0')} · ${event.gp} · ${sname}`;
+            options.push({ value: `${event.year}/${event.round}/${encodeURIComponent(sname)}`, label });
+          }
+        }
+
+        sel.innerHTML = '<option value="">— Choose a session —</option>'
+          + options.map(o => `<option value="${o.value}">${o.label}</option>`).join('');
+        getEl('replayLoadBtn').disabled = false;
+      }
+
+      async function loadReplay() {
+        const sel = getEl('replaySessionSelect');
+        const val = sel.value;
+        if (!val) return;
+
+        // Clear previous replay
+        stopReplayAnimation();
+        replayFrames = null;
+        replayCircuit = null;
+        replayCurrentIdx = 0;
+        replayPlaying = false;
+        getEl('replayCanvasWrap').classList.remove('visible');
+
+        // Show loading
+        const loadingEl = getEl('replayLoading');
+        loadingEl.classList.add('visible');
+        getEl('replayLoadingText').textContent = 'Loading telemetry… this can take a few seconds';
+        getEl('replayLoadBtn').disabled = true;
+
+        let data;
+        try {
+          data = await fetchWithTimeout(`${SERVER}/replay/${val}/frames`, 120000);
+        } catch (err) {
+          loadingEl.classList.remove('visible');
+          getEl('replayLoadBtn').disabled = false;
+          // Show error in pane
+          const errDiv = document.createElement('div');
+          errDiv.className = 'live-state-msg';
+          errDiv.innerHTML = `
+            <div class="live-state-icon">⚠</div>
+            <div class="live-state-heading">Failed to load telemetry</div>
+            <div class="live-state-body">${err.message || 'Network error'}</div>`;
+          getEl('replayPane').appendChild(errDiv);
+          setTimeout(() => errDiv.remove(), 6000);
+          return;
+        }
+
+        loadingEl.classList.remove('visible');
+        getEl('replayLoadBtn').disabled = false;
+
+        if (!data.frames || data.frames.length === 0) {
+          getEl('replayLoadingText').textContent = 'No position data found for this session.';
+          loadingEl.classList.add('visible');
+          return;
+        }
+
+        replayFrames = data.frames;
+        replayCircuit = data.circuit;
+        replayCurrentIdx = 0;
+
+        // Setup scrubber
+        const scrubber = getEl('replayScrubber');
+        scrubber.max = replayFrames.length - 1;
+        scrubber.value = 0;
+
+        // Show canvas area
+        getEl('replayCanvasWrap').classList.add('visible');
+
+        // Compute and cache transform
+        buildCircuitTransform();
+
+        // Draw first frame
+        drawReplayFrame(0);
+
+        // Auto-play unless prefers-reduced-motion
+        const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!noMotion) {
+          startReplayAnimation();
+        } else {
+          getEl('replayPlayPause').textContent = '▶';
+        }
+      }
+
+      // ── Circuit coordinate → canvas transform ──────────────────────
+      let canvasTransform = null; // { scaleX, scaleY, offX, offY, cosR, sinR, cx, cy }
+
+      function buildCircuitTransform() {
+        if (!replayCircuit) return;
+        const canvas = getEl('replayCanvas');
+        const W = canvas.width;
+        const H = canvas.height;
+        const PAD = 40;
+
+        const { x_min, x_max, y_min, y_max, rotation } = replayCircuit;
+        const cx = (x_min + x_max) / 2;
+        const cy = (y_min + y_max) / 2;
+        const radians = (rotation * Math.PI) / 180;
+        const cosR = Math.cos(radians);
+        const sinR = Math.sin(radians);
+
+        // After rotating, recompute bounds by sampling corner points
+        const corners = [
+          [x_min, y_min], [x_max, y_min], [x_min, y_max], [x_max, y_max]
+        ].map(([x, y]) => {
+          const dx = x - cx, dy = y - cy;
+          return [cx + dx * cosR - dy * sinR, cy + dx * sinR + dy * cosR];
+        });
+        const rxs = corners.map(c => c[0]);
+        const rys = corners.map(c => c[1]);
+        const rx_min = Math.min(...rxs), rx_max = Math.max(...rxs);
+        const ry_min = Math.min(...rys), ry_max = Math.max(...rys);
+
+        const rw = rx_max - rx_min || 1;
+        const rh = ry_max - ry_min || 1;
+        const scale = Math.min((W - PAD * 2) / rw, (H - PAD * 2) / rh);
+        const offX = (W - rw * scale) / 2 - rx_min * scale;
+        const offY = (H - rh * scale) / 2 - ry_min * scale;
+
+        canvasTransform = { scale, offX, offY, cosR, sinR, cx, cy };
+      }
+
+      function worldToCanvas(x, y) {
+        const { scale, offX, offY, cosR, sinR, cx, cy } = canvasTransform;
+        const dx = x - cx, dy = y - cy;
+        const rx = cx + dx * cosR - dy * sinR;
+        const ry = cy + dx * sinR + dy * cosR;
+        return [rx * scale + offX, ry * scale + offY];
+      }
+
+      // ── Track outline ──────────────────────────────────────────────
+      // Build once from first driver's positions across all frames (sampled).
+      let trackPath = null; // array of [cx, cy] in canvas space
+
+      function buildTrackPath() {
+        if (!replayFrames || !canvasTransform) return;
+        const SAMPLE = 4; // take every 4th frame for outline
+        const points = [];
+        let trackCode = null;
+
+        // Pick a driver that appears early (first frame with drivers)
+        for (const f of replayFrames) {
+          if (f.drivers.length > 0) { trackCode = f.drivers[0].code; break; }
+        }
+        if (!trackCode) return;
+
+        for (let i = 0; i < replayFrames.length; i += SAMPLE) {
+          const drv = replayFrames[i].drivers.find(d => d.code === trackCode);
+          if (!drv) continue;
+          const [px, py] = worldToCanvas(drv.x, drv.y);
+          points.push([px, py]);
+        }
+        trackPath = points;
+      }
+
+      // ── Draw a single replay frame ─────────────────────────────────
+      function drawReplayFrame(idx) {
+        const canvas = getEl('replayCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const W = canvas.width, H = canvas.height;
+
+        // Background
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--carbon-2').trim() || '#111';
+        ctx.fillRect(0, 0, W, H);
+
+        if (!canvasTransform) return;
+
+        // Build track path on first draw
+        if (!trackPath) buildTrackPath();
+
+        // Draw subtle track outline
+        if (trackPath && trackPath.length > 2) {
+          ctx.beginPath();
+          ctx.moveTo(trackPath[0][0], trackPath[0][1]);
+          for (let i = 1; i < trackPath.length; i++) {
+            ctx.lineTo(trackPath[i][0], trackPath[i][1]);
+          }
+          ctx.strokeStyle = 'oklch(22% 0.008 250 / 0.6)';
+          ctx.lineWidth = 8;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.stroke();
+
+          // Slightly brighter inner line
+          ctx.strokeStyle = 'oklch(28% 0.010 250 / 0.5)';
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        }
+
+        // Draw drivers for this frame
+        const frame = replayFrames[idx];
+        if (!frame) return;
+
+        ctx.font = 'bold 9px JetBrains Mono, monospace';
+        ctx.textBaseline = 'middle';
+
+        for (const drv of frame.drivers) {
+          const [px, py] = worldToCanvas(drv.x, drv.y);
+          const color = drv.team_color || '#ffffff';
+
+          // Dot
+          ctx.beginPath();
+          ctx.arc(px, py, 5, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+          ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          // Code label
+          ctx.fillStyle = color;
+          ctx.fillText(drv.code, px + 7, py);
+        }
+
+        // Update scrubber and time display
+        const scrubber = getEl('replayScrubber');
+        if (scrubber) scrubber.value = idx;
+        const timeEl = getEl('replayTimeDisplay');
+        if (timeEl) timeEl.textContent = fmtMs(frame.t_ms);
+      }
+
+      // ── Replay animation loop ──────────────────────────────────────
+      function startReplayAnimation() {
+        replayPlaying = true;
+        replayLastRafTs = null;
+        getEl('replayPlayPause').textContent = '⏸';
+        if (rafHandle) cancelAnimationFrame(rafHandle);
+        rafHandle = requestAnimationFrame(replayTick);
+      }
+
+      function pauseReplay() {
+        replayPlaying = false;
+        getEl('replayPlayPause').textContent = '▶';
+        if (rafHandle) {
+          cancelAnimationFrame(rafHandle);
+          rafHandle = null;
+        }
+      }
+
+      function stopReplayAnimation() {
+        pauseReplay();
+        trackPath = null;
+        canvasTransform = null;
+        replayLastRafTs = null;
+        replayAccMs = 0;
+      }
+
+      function replayTick(ts) {
+        if (!replayPlaying || !replayFrames) return;
+
+        if (replayLastRafTs !== null) {
+          const delta = ts - replayLastRafTs;
+          replayAccMs += delta * replaySpeed;
+
+          // Advance frames based on t_ms delta between frames
+          while (replayCurrentIdx < replayFrames.length - 1) {
+            const frameDuration = replayFrames[replayCurrentIdx + 1].t_ms - replayFrames[replayCurrentIdx].t_ms;
+            if (replayAccMs >= frameDuration) {
+              replayAccMs -= frameDuration;
+              replayCurrentIdx++;
+            } else {
+              break;
+            }
+          }
+
+          // End of replay
+          if (replayCurrentIdx >= replayFrames.length - 1) {
+            replayCurrentIdx = replayFrames.length - 1;
+            drawReplayFrame(replayCurrentIdx);
+            pauseReplay();
+            return;
+          }
+        }
+
+        replayLastRafTs = ts;
+        drawReplayFrame(replayCurrentIdx);
+        rafHandle = requestAnimationFrame(replayTick);
+      }
+
+      // ── Playback controls ──────────────────────────────────────────
+      function togglePlayPause() {
+        if (!replayFrames) return;
+        if (replayPlaying) {
+          pauseReplay();
+        } else {
+          // If at end, restart
+          if (replayCurrentIdx >= replayFrames.length - 1) {
+            replayCurrentIdx = 0;
+            replayAccMs = 0;
+          }
+          startReplayAnimation();
+        }
+      }
+
+      function onScrub(val) {
+        if (!replayFrames) return;
+        const idx = parseInt(val, 10);
+        replayCurrentIdx = idx;
+        replayAccMs = 0;
+        replayLastRafTs = null;
+        drawReplayFrame(idx);
+        if (replayPlaying) {
+          // Continue animation from new position
+          replayLastRafTs = null;
+        }
+      }
+
+      function setSpeed(s) {
+        replaySpeed = s;
+        // Update active button
+        document.querySelectorAll('.replay-speed-btn').forEach(btn => {
+          const btnSpeed = parseInt(btn.textContent, 10);
+          btn.classList.toggle('active', btnSpeed === s);
+        });
+      }
+
+      // ── F1 · Poll /session on page load for button state ──────────
+      async function initLiveButton() {
+        try {
+          const data = await fetchWithTimeout(`${SERVER}/session`);
+          if (data.active) {
+            const btn = getEl('liveModeBtn');
+            if (btn) btn.classList.add('is-live');
+          }
+        } catch {
+          // Server offline — button still works, just neutral state
+        }
+      }
+
+      // ── Public API ─────────────────────────────────────────────────
+      window.LiveMode = {
+        open: openOverlay,
+        close: closeOverlay,
+        switchTab,
+        loadReplay,
+        togglePlayPause,
+        onScrub,
+        setSpeed,
+      };
+
+      // ── Init on DOM ready ──────────────────────────────────────────
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLiveButton);
+      } else {
+        initLiveButton();
+      }
+
+      // Resize handler — rebuild transform and redraw on window resize
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (replayFrames && replayCircuit && activeTab === 'replay') {
+            buildCircuitTransform();
+            trackPath = null; // force rebuild
+            drawReplayFrame(replayCurrentIdx);
+          }
+        }, 200);
+      });
+
+    })();
   </script>
 </body>
 
