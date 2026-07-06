@@ -1,42 +1,42 @@
 {
-  "fetchedAt": "2026-07-05T16:01:44.594492+00:00",
+  "fetchedAt": "2026-07-06T00:03:57.958806+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 8,
-    "name": "Austrian Grand Prix",
-    "circuit": "Red Bull Ring",
+    "round": 9,
+    "name": "British Grand Prix",
+    "circuit": "Silverstone Circuit",
     "podium": [
       {
         "pos": 1,
-        "driver": "George Russell",
-        "team": "Mercedes",
-        "number": "63",
-        "time": "1:26:37.979"
+        "driver": "Charles Leclerc",
+        "team": "Ferrari",
+        "number": "16",
+        "time": "1:27:11.335"
       },
       {
         "pos": 2,
-        "driver": "Max Verstappen",
-        "team": "Red Bull",
-        "number": "3",
-        "time": "+1.611"
+        "driver": "George Russell",
+        "team": "Mercedes",
+        "number": "63",
+        "time": "+0.427"
       },
       {
         "pos": 3,
-        "driver": "Andrea Kimi Antonelli",
-        "team": "Mercedes",
-        "number": "12",
-        "time": "+1.986"
+        "driver": "Lewis Hamilton",
+        "team": "Ferrari",
+        "number": "44",
+        "time": "+0.772"
       }
     ]
   },
   "nextRace": {
-    "round": 9,
-    "name": "British Grand Prix",
-    "circuit": "Silverstone Circuit",
-    "locality": "Silverstone",
-    "country": "UK",
-    "date": "2026-07-05",
-    "time": "14:00:00Z"
+    "round": 10,
+    "name": "Belgian Grand Prix",
+    "circuit": "Circuit de Spa-Francorchamps",
+    "locality": "Spa",
+    "country": "Belgium",
+    "date": "2026-07-19",
+    "time": "13:00:00Z"
   },
   "drivers": [
     {
@@ -56,8 +56,8 @@
       "code": "RUS",
       "team": "Mercedes",
       "nationality": "British",
-      "points": 136,
-      "gap": "\u221243",
+      "points": 154,
+      "gap": "\u221225",
       "teamColor": "mercedes",
       "isLeader": false
     },
@@ -67,31 +67,31 @@
       "code": "HAM",
       "team": "Ferrari",
       "nationality": "British",
-      "points": 132,
-      "gap": "\u221247",
+      "points": 147,
+      "gap": "\u221232",
       "teamColor": "ferrari",
       "isLeader": false
     },
     {
       "pos": 4,
-      "name": "L. Norris",
-      "code": "NOR",
-      "team": "McLaren",
-      "nationality": "British",
-      "points": 85,
-      "gap": "\u221294",
-      "teamColor": "mclaren",
-      "isLeader": false
-    },
-    {
-      "pos": 5,
       "name": "C. Leclerc",
       "code": "LEC",
       "team": "Ferrari",
       "nationality": "Monegasque",
-      "points": 83,
-      "gap": "\u221296",
+      "points": 108,
+      "gap": "\u221271",
       "teamColor": "ferrari",
+      "isLeader": false
+    },
+    {
+      "pos": 5,
+      "name": "L. Norris",
+      "code": "NOR",
+      "team": "McLaren",
+      "nationality": "British",
+      "points": 97,
+      "gap": "\u221282",
+      "teamColor": "mclaren",
       "isLeader": false
     },
     {
@@ -122,8 +122,8 @@
       "code": "HAD",
       "team": "Red Bull",
       "nationality": "French",
-      "points": 42,
-      "gap": "\u2212137",
+      "points": 52,
+      "gap": "\u2212127",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -133,8 +133,8 @@
       "code": "GAS",
       "team": "Alpine F1 Team",
       "nationality": "French",
-      "points": 41,
-      "gap": "\u2212138",
+      "points": 42,
+      "gap": "\u2212137",
       "teamColor": "alpine",
       "isLeader": false
     },
@@ -144,8 +144,8 @@
       "code": "LAW",
       "team": "RB F1 Team",
       "nationality": "New Zealander",
-      "points": 31,
-      "gap": "\u2212148",
+      "points": 39,
+      "gap": "\u2212140",
       "teamColor": "racingbulls",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 315,
+      "points": 333,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,31 +163,31 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 215,
-      "barPct": 68,
+      "points": 255,
+      "barPct": 77,
       "teamColor": "ferrari"
     },
     {
       "pos": 3,
       "name": "McLaren",
       "nationality": "British",
-      "points": 167,
-      "barPct": 53,
+      "points": 179,
+      "barPct": 54,
       "teamColor": "mclaren"
     },
     {
       "pos": 4,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 118,
-      "barPct": 37,
+      "points": 128,
+      "barPct": 38,
       "teamColor": "redbull"
     },
     {
       "pos": 5,
       "name": "Alpine F1 Team",
       "nationality": "French",
-      "points": 57,
+      "points": 60,
       "barPct": 18,
       "teamColor": "alpine"
     },
@@ -195,8 +195,8 @@
       "pos": 6,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 45,
-      "barPct": 14,
+      "points": 59,
+      "barPct": 18,
       "teamColor": "racingbulls"
     },
     {
@@ -204,7 +204,7 @@
       "name": "Haas F1 Team",
       "nationality": "American",
       "points": 21,
-      "barPct": 7,
+      "barPct": 6,
       "teamColor": "haas"
     },
     {
@@ -219,8 +219,8 @@
       "pos": 9,
       "name": "Audi",
       "nationality": "German",
-      "points": 2,
-      "barPct": 1,
+      "points": 6,
+      "barPct": 2,
       "teamColor": "ink-3"
     },
     {
@@ -319,7 +319,8 @@
       "circuit": "Silverstone Circuit",
       "country": "UK",
       "date": "2026-07-05",
-      "status": "next"
+      "status": "done",
+      "winner": "C. Leclerc"
     },
     {
       "round": 10,
@@ -327,7 +328,7 @@
       "circuit": "Circuit de Spa-Francorchamps",
       "country": "Belgium",
       "date": "2026-07-19",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 11,
@@ -427,14 +428,14 @@
     }
   ],
   "fastestLap": {
-    "time": "1:10.374",
+    "time": "1:31.777",
     "driver": "ANT",
     "team": "Mercedes",
-    "race": "Austrian Grand Prix"
+    "race": "British Grand Prix"
   },
   "fastestPitStop": {
-    "duration": "21.020",
-    "team": "Ferrari",
-    "race": "Austrian Grand Prix"
+    "duration": "28.337",
+    "team": "Mercedes",
+    "race": "British Grand Prix"
   }
 }
