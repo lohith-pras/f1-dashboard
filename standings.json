@@ -1,41 +1,41 @@
 {
-  "fetchedAt": "2026-07-19T15:59:28.497976+00:00",
+  "fetchedAt": "2026-07-19T23:44:35.799717+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 9,
-    "name": "British Grand Prix",
-    "circuit": "Silverstone Circuit",
+    "round": 10,
+    "name": "Belgian Grand Prix",
+    "circuit": "Circuit de Spa-Francorchamps",
     "podium": [
       {
         "pos": 1,
-        "driver": "Charles Leclerc",
-        "team": "Ferrari",
-        "number": "16",
-        "time": "1:27:11.335"
+        "driver": "Andrea Kimi Antonelli",
+        "team": "Mercedes",
+        "number": "12",
+        "time": "1:24:42.479"
       },
       {
         "pos": 2,
-        "driver": "George Russell",
-        "team": "Mercedes",
-        "number": "63",
-        "time": "+0.427"
+        "driver": "Charles Leclerc",
+        "team": "Ferrari",
+        "number": "16",
+        "time": "+1.952"
       },
       {
         "pos": 3,
-        "driver": "Lewis Hamilton",
-        "team": "Ferrari",
-        "number": "44",
-        "time": "+0.772"
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "number": "3",
+        "time": "+11.586"
       }
     ]
   },
   "nextRace": {
-    "round": 10,
-    "name": "Belgian Grand Prix",
-    "circuit": "Circuit de Spa-Francorchamps",
-    "locality": "Spa",
-    "country": "Belgium",
-    "date": "2026-07-19",
+    "round": 11,
+    "name": "Hungarian Grand Prix",
+    "circuit": "Hungaroring",
+    "locality": "Budapest",
+    "country": "Hungary",
+    "date": "2026-07-26",
     "time": "13:00:00Z"
   },
   "drivers": [
@@ -328,7 +328,7 @@
       "circuit": "Circuit de Spa-Francorchamps",
       "country": "Belgium",
       "date": "2026-07-19",
-      "status": "next",
+      "status": "done",
       "winner": "A. Antonelli"
     },
     {
@@ -337,7 +337,7 @@
       "circuit": "Hungaroring",
       "country": "Hungary",
       "date": "2026-07-26",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 12,
@@ -429,14 +429,14 @@
     }
   ],
   "fastestLap": {
-    "time": "1:31.777",
-    "driver": "ANT",
-    "team": "Mercedes",
-    "race": "British Grand Prix"
+    "time": "1:48.890",
+    "driver": "NOR",
+    "team": "McLaren",
+    "race": "Belgian Grand Prix"
   },
   "fastestPitStop": {
     "duration": "22.638",
     "team": "Williams",
-    "race": "British Grand Prix"
+    "race": "Belgian Grand Prix"
   }
 }
