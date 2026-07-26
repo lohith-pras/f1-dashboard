@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-25T23:56:17.166109+00:00",
+  "fetchedAt": "2026-07-26T15:57:00.766529+00:00",
   "season": 2026,
   "lastRace": {
     "round": 10,
@@ -435,8 +435,8 @@
     "race": "Belgian Grand Prix"
   },
   "fastestPitStop": {
-    "duration": "22.638",
-    "team": "Williams",
+    "duration": "21.326",
+    "team": "Mercedes",
     "race": "Belgian Grand Prix"
   }
 }
