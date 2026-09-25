@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-14T00:36:40.273388+00:00",
+  "fetchedAt": "2026-09-25T19:07:41.613585+00:00",
   "season": 2026,
   "lastRace": {
     "round": 14,
@@ -426,7 +426,7 @@
     {
       "round": 22,
       "name": "Qatar Grand Prix",
-      "circuit": "Losail International Circuit",
+      "circuit": "Lusail International Circuit",
       "country": "Qatar",
       "date": "2026-11-29",
       "status": "upcoming"
