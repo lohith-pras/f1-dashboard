@@ -1,42 +1,42 @@
 {
-  "fetchedAt": "2026-09-26T01:03:27.956610+00:00",
+  "fetchedAt": "2026-09-26T18:28:36.890278+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 14,
-    "name": "Spanish Grand Prix",
-    "circuit": "Madring",
+    "round": 15,
+    "name": "Azerbaijan Grand Prix",
+    "circuit": "Baku City Circuit",
     "podium": [
       {
         "pos": 1,
-        "driver": "Andrea Kimi Antonelli",
+        "driver": "George Russell",
         "team": "Mercedes",
-        "number": "12",
-        "time": "1:34:23.754"
+        "number": "63",
+        "time": "1:38:02.143"
       },
       {
         "pos": 2,
         "driver": "Max Verstappen",
         "team": "Red Bull",
         "number": "3",
-        "time": "+4.351"
+        "time": "+0.196"
       },
       {
         "pos": 3,
-        "driver": "Lando Norris",
-        "team": "McLaren",
-        "number": "1",
-        "time": "+5.089"
+        "driver": "Isack Hadjar",
+        "team": "Red Bull",
+        "number": "6",
+        "time": "+10.704"
       }
     ]
   },
   "nextRace": {
-    "round": 15,
-    "name": "Azerbaijan Grand Prix",
-    "circuit": "Baku City Circuit",
-    "locality": "Baku",
-    "country": "Azerbaijan",
-    "date": "2026-09-26",
-    "time": "11:00:00Z"
+    "round": 16,
+    "name": "Bahrain Grand Prix in Malaysia",
+    "circuit": "Sepang International Circuit",
+    "locality": "Kuala Lumpur",
+    "country": "Malaysia",
+    "date": "2026-10-04",
+    "time": "07:00:00Z"
   },
   "drivers": [
     {
@@ -45,7 +45,7 @@
       "code": "ANT",
       "team": "Mercedes",
       "nationality": "Italian",
-      "points": 292,
+      "points": 302,
       "gap": "LEAD",
       "teamColor": "mercedes",
       "isLeader": true
@@ -56,8 +56,8 @@
       "code": "RUS",
       "team": "Mercedes",
       "nationality": "British",
-      "points": 211,
-      "gap": "\u221281",
+      "points": 236,
+      "gap": "\u221266",
       "teamColor": "mercedes",
       "isLeader": false
     },
@@ -67,8 +67,8 @@
       "code": "HAM",
       "team": "Ferrari",
       "nationality": "British",
-      "points": 191,
-      "gap": "\u2212101",
+      "points": 199,
+      "gap": "\u2212103",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -79,7 +79,7 @@
       "team": "McLaren",
       "nationality": "British",
       "points": 186,
-      "gap": "\u2212106",
+      "gap": "\u2212116",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -89,8 +89,8 @@
       "code": "LEC",
       "team": "Ferrari",
       "nationality": "Monegasque",
-      "points": 167,
-      "gap": "\u2212125",
+      "points": 179,
+      "gap": "\u2212123",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -100,8 +100,8 @@
       "code": "VER",
       "team": "Red Bull",
       "nationality": "Dutch",
-      "points": 145,
-      "gap": "\u2212147",
+      "points": 163,
+      "gap": "\u2212139",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -112,7 +112,7 @@
       "team": "McLaren",
       "nationality": "Australian",
       "points": 120,
-      "gap": "\u2212172",
+      "gap": "\u2212182",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -122,8 +122,8 @@
       "code": "HAD",
       "team": "Red Bull",
       "nationality": "French",
-      "points": 71,
-      "gap": "\u2212221",
+      "points": 86,
+      "gap": "\u2212216",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -134,7 +134,7 @@
       "team": "Red Bull",
       "nationality": "New Zealander",
       "points": 59,
-      "gap": "\u2212233",
+      "gap": "\u2212243",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -145,7 +145,7 @@
       "team": "Alpine F1 Team",
       "nationality": "French",
       "points": 41,
-      "gap": "\u2212251",
+      "gap": "\u2212261",
       "teamColor": "alpine",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 503,
+      "points": 538,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,8 +163,8 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 358,
-      "barPct": 71,
+      "points": 378,
+      "barPct": 70,
       "teamColor": "ferrari"
     },
     {
@@ -172,22 +172,22 @@
       "name": "McLaren",
       "nationality": "British",
       "points": 306,
-      "barPct": 61,
+      "barPct": 57,
       "teamColor": "mclaren"
     },
     {
       "pos": 4,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 230,
-      "barPct": 46,
+      "points": 263,
+      "barPct": 49,
       "teamColor": "redbull"
     },
     {
       "pos": 5,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 77,
+      "points": 83,
       "barPct": 15,
       "teamColor": "racingbulls"
     },
@@ -196,15 +196,15 @@
       "name": "Alpine F1 Team",
       "nationality": "French",
       "points": 68,
-      "barPct": 14,
+      "barPct": 13,
       "teamColor": "alpine"
     },
     {
       "pos": 7,
       "name": "Haas F1 Team",
       "nationality": "American",
-      "points": 21,
-      "barPct": 4,
+      "points": 27,
+      "barPct": 5,
       "teamColor": "haas"
     },
     {
@@ -219,7 +219,7 @@
       "pos": 9,
       "name": "Williams",
       "nationality": "British",
-      "points": 11,
+      "points": 12,
       "barPct": 2,
       "teamColor": "williams"
     },
@@ -373,7 +373,8 @@
       "circuit": "Baku City Circuit",
       "country": "Azerbaijan",
       "date": "2026-09-26",
-      "status": "next"
+      "status": "done",
+      "winner": "G. Russell"
     },
     {
       "round": 16,
@@ -381,7 +382,7 @@
       "circuit": "Sepang International Circuit",
       "country": "Malaysia",
       "date": "2026-10-04",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 17,
@@ -441,14 +442,14 @@
     }
   ],
   "fastestLap": {
-    "time": "1:35.587",
+    "time": "1:44.916",
     "driver": "RUS",
     "team": "Mercedes",
-    "race": "Spanish Grand Prix"
+    "race": "Azerbaijan Grand Prix"
   },
   "fastestPitStop": {
-    "duration": "30.622",
-    "team": "Mercedes",
-    "race": "Spanish Grand Prix"
+    "duration": "15.093",
+    "team": "Cadillac F1 Team",
+    "race": "Azerbaijan Grand Prix"
   }
 }
