@@ -1,42 +1,42 @@
 {
-  "fetchedAt": "2026-09-27T00:59:24.879960+00:00",
+  "fetchedAt": "2026-10-10T19:08:49.074469+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 15,
-    "name": "Azerbaijan Grand Prix",
-    "circuit": "Baku City Circuit",
+    "round": 16,
+    "name": "Bahrain Grand Prix in Malaysia",
+    "circuit": "Sepang International Circuit",
     "podium": [
       {
         "pos": 1,
-        "driver": "George Russell",
-        "team": "Mercedes",
-        "number": "63",
-        "time": "1:38:02.143"
-      },
-      {
-        "pos": 2,
         "driver": "Max Verstappen",
         "team": "Red Bull",
         "number": "3",
-        "time": "+0.196"
+        "time": "1:47:14.808"
+      },
+      {
+        "pos": 2,
+        "driver": "Andrea Kimi Antonelli",
+        "team": "Mercedes",
+        "number": "12",
+        "time": "+2.307"
       },
       {
         "pos": 3,
-        "driver": "Isack Hadjar",
-        "team": "Red Bull",
-        "number": "6",
-        "time": "+10.704"
+        "driver": "Lewis Hamilton",
+        "team": "Ferrari",
+        "number": "44",
+        "time": "+4.919"
       }
     ]
   },
   "nextRace": {
-    "round": 16,
-    "name": "Bahrain Grand Prix in Malaysia",
-    "circuit": "Sepang International Circuit",
-    "locality": "Kuala Lumpur",
-    "country": "Malaysia",
-    "date": "2026-10-04",
-    "time": "07:00:00Z"
+    "round": 17,
+    "name": "Singapore Grand Prix",
+    "circuit": "Marina Bay Street Circuit",
+    "locality": "Marina Bay",
+    "country": "Singapore",
+    "date": "2026-10-11",
+    "time": "12:00:00Z"
   },
   "drivers": [
     {
@@ -45,7 +45,7 @@
       "code": "ANT",
       "team": "Mercedes",
       "nationality": "Italian",
-      "points": 302,
+      "points": 320,
       "gap": "LEAD",
       "teamColor": "mercedes",
       "isLeader": true
@@ -57,7 +57,7 @@
       "team": "Mercedes",
       "nationality": "British",
       "points": 236,
-      "gap": "\u221266",
+      "gap": "\u221284",
       "teamColor": "mercedes",
       "isLeader": false
     },
@@ -67,31 +67,31 @@
       "code": "HAM",
       "team": "Ferrari",
       "nationality": "British",
-      "points": 199,
-      "gap": "\u2212103",
+      "points": 214,
+      "gap": "\u2212106",
       "teamColor": "ferrari",
       "isLeader": false
     },
     {
       "pos": 4,
-      "name": "L. Norris",
-      "code": "NOR",
-      "team": "McLaren",
-      "nationality": "British",
-      "points": 186,
-      "gap": "\u2212116",
-      "teamColor": "mclaren",
-      "isLeader": false
-    },
-    {
-      "pos": 5,
       "name": "C. Leclerc",
       "code": "LEC",
       "team": "Ferrari",
       "nationality": "Monegasque",
-      "points": 179,
-      "gap": "\u2212123",
+      "points": 191,
+      "gap": "\u2212129",
       "teamColor": "ferrari",
+      "isLeader": false
+    },
+    {
+      "pos": 5,
+      "name": "L. Norris",
+      "code": "NOR",
+      "team": "McLaren",
+      "nationality": "British",
+      "points": 188,
+      "gap": "\u2212132",
+      "teamColor": "mclaren",
       "isLeader": false
     },
     {
@@ -100,8 +100,8 @@
       "code": "VER",
       "team": "Red Bull",
       "nationality": "Dutch",
-      "points": 163,
-      "gap": "\u2212139",
+      "points": 188,
+      "gap": "\u2212132",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -111,8 +111,8 @@
       "code": "PIA",
       "team": "McLaren",
       "nationality": "Australian",
-      "points": 120,
-      "gap": "\u2212182",
+      "points": 128,
+      "gap": "\u2212192",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -122,8 +122,8 @@
       "code": "HAD",
       "team": "Red Bull",
       "nationality": "French",
-      "points": 86,
-      "gap": "\u2212216",
+      "points": 96,
+      "gap": "\u2212224",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -133,8 +133,8 @@
       "code": "LAW",
       "team": "Red Bull",
       "nationality": "New Zealander",
-      "points": 59,
-      "gap": "\u2212243",
+      "points": 65,
+      "gap": "\u2212255",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -145,7 +145,7 @@
       "team": "Alpine F1 Team",
       "nationality": "French",
       "points": 41,
-      "gap": "\u2212261",
+      "gap": "\u2212279",
       "teamColor": "alpine",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 538,
+      "points": 556,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,15 +163,15 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 378,
-      "barPct": 70,
+      "points": 405,
+      "barPct": 73,
       "teamColor": "ferrari"
     },
     {
       "pos": 3,
       "name": "McLaren",
       "nationality": "British",
-      "points": 306,
+      "points": 316,
       "barPct": 57,
       "teamColor": "mclaren"
     },
@@ -179,16 +179,16 @@
       "pos": 4,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 263,
-      "barPct": 49,
+      "points": 298,
+      "barPct": 54,
       "teamColor": "redbull"
     },
     {
       "pos": 5,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 83,
-      "barPct": 15,
+      "points": 90,
+      "barPct": 16,
       "teamColor": "racingbulls"
     },
     {
@@ -196,7 +196,7 @@
       "name": "Alpine F1 Team",
       "nationality": "French",
       "points": 68,
-      "barPct": 13,
+      "barPct": 12,
       "teamColor": "alpine"
     },
     {
@@ -227,7 +227,7 @@
       "pos": 10,
       "name": "Aston Martin",
       "nationality": "British",
-      "points": 3,
+      "points": 7,
       "barPct": 1,
       "teamColor": "aston"
     },
@@ -382,7 +382,8 @@
       "circuit": "Sepang International Circuit",
       "country": "Malaysia",
       "date": "2026-10-04",
-      "status": "next"
+      "status": "done",
+      "winner": "M. Verstappen"
     },
     {
       "round": 17,
@@ -390,7 +391,7 @@
       "circuit": "Marina Bay Street Circuit",
       "country": "Singapore",
       "date": "2026-10-11",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 18,
@@ -442,14 +443,14 @@
     }
   ],
   "fastestLap": {
-    "time": "1:44.916",
-    "driver": "RUS",
-    "team": "Mercedes",
-    "race": "Azerbaijan Grand Prix"
+    "time": "1:38.220",
+    "driver": "VER",
+    "team": "Red Bull",
+    "race": "Bahrain Grand Prix in Malaysia"
   },
   "fastestPitStop": {
-    "duration": "15.093",
-    "team": "Cadillac F1 Team",
-    "race": "Azerbaijan Grand Prix"
+    "duration": "27.295",
+    "team": "Mercedes",
+    "race": "Bahrain Grand Prix in Malaysia"
   }
 }
