@@ -1,41 +1,41 @@
 {
-  "fetchedAt": "2026-10-25T17:58:32.125918+00:00",
+  "fetchedAt": "2026-10-26T00:51:43.667290+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 17,
-    "name": "Singapore Grand Prix",
-    "circuit": "Marina Bay Street Circuit",
+    "round": 18,
+    "name": "United States Grand Prix",
+    "circuit": "Circuit of the Americas",
     "podium": [
       {
         "pos": 1,
-        "driver": "Max Verstappen",
-        "team": "Red Bull",
-        "number": "3",
-        "time": "1:42:00.785"
+        "driver": "Andrea Kimi Antonelli",
+        "team": "Mercedes",
+        "number": "12",
+        "time": "1:35:16.650"
       },
       {
         "pos": 2,
         "driver": "Charles Leclerc",
         "team": "Ferrari",
         "number": "16",
-        "time": "+7.335"
+        "time": "+13.078"
       },
       {
         "pos": 3,
-        "driver": "Andrea Kimi Antonelli",
-        "team": "Mercedes",
-        "number": "12",
-        "time": "+24.573"
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "number": "3",
+        "time": "+17.485"
       }
     ]
   },
   "nextRace": {
-    "round": 18,
-    "name": "United States Grand Prix",
-    "circuit": "Circuit of the Americas",
-    "locality": "Austin",
-    "country": "USA",
-    "date": "2026-10-25",
+    "round": 19,
+    "name": "Mexico City Grand Prix",
+    "circuit": "Aut\u00f3dromo Hermanos Rodr\u00edguez",
+    "locality": "Mexico City",
+    "country": "Mexico",
+    "date": "2026-11-01",
     "time": "20:00:00Z"
   },
   "drivers": [
@@ -45,7 +45,7 @@
       "code": "ANT",
       "team": "Mercedes",
       "nationality": "Italian",
-      "points": 340,
+      "points": 365,
       "gap": "LEAD",
       "teamColor": "mercedes",
       "isLeader": true
@@ -56,8 +56,8 @@
       "code": "RUS",
       "team": "Mercedes",
       "nationality": "British",
-      "points": 238,
-      "gap": "\u2212102",
+      "points": 242,
+      "gap": "\u2212123",
       "teamColor": "mercedes",
       "isLeader": false
     },
@@ -67,8 +67,8 @@
       "code": "HAM",
       "team": "Ferrari",
       "nationality": "British",
-      "points": 229,
-      "gap": "\u2212111",
+      "points": 241,
+      "gap": "\u2212124",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -78,8 +78,8 @@
       "code": "VER",
       "team": "Red Bull",
       "nationality": "Dutch",
-      "points": 221,
-      "gap": "\u2212119",
+      "points": 236,
+      "gap": "\u2212129",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -89,8 +89,8 @@
       "code": "LEC",
       "team": "Ferrari",
       "nationality": "Monegasque",
-      "points": 215,
-      "gap": "\u2212125",
+      "points": 233,
+      "gap": "\u2212132",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -100,8 +100,8 @@
       "code": "NOR",
       "team": "McLaren",
       "nationality": "British",
-      "points": 201,
-      "gap": "\u2212139",
+      "points": 211,
+      "gap": "\u2212154",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -111,8 +111,8 @@
       "code": "PIA",
       "team": "McLaren",
       "nationality": "Australian",
-      "points": 138,
-      "gap": "\u2212202",
+      "points": 144,
+      "gap": "\u2212221",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -122,8 +122,8 @@
       "code": "HAD",
       "team": "Red Bull",
       "nationality": "French",
-      "points": 97,
-      "gap": "\u2212243",
+      "points": 105,
+      "gap": "\u2212260",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -133,8 +133,8 @@
       "code": "LAW",
       "team": "Red Bull",
       "nationality": "New Zealander",
-      "points": 75,
-      "gap": "\u2212265",
+      "points": 77,
+      "gap": "\u2212288",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -144,8 +144,8 @@
       "code": "GAS",
       "team": "Alpine F1 Team",
       "nationality": "French",
-      "points": 41,
-      "gap": "\u2212299",
+      "points": 42,
+      "gap": "\u2212323",
       "teamColor": "alpine",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 578,
+      "points": 607,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,31 +163,31 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 444,
-      "barPct": 77,
+      "points": 474,
+      "barPct": 78,
       "teamColor": "ferrari"
     },
     {
       "pos": 3,
-      "name": "McLaren",
-      "nationality": "British",
-      "points": 339,
-      "barPct": 59,
-      "teamColor": "mclaren"
+      "name": "Red Bull",
+      "nationality": "Austrian",
+      "points": 355,
+      "barPct": 58,
+      "teamColor": "redbull"
     },
     {
       "pos": 4,
-      "name": "Red Bull",
-      "nationality": "Austrian",
-      "points": 332,
-      "barPct": 57,
-      "teamColor": "redbull"
+      "name": "McLaren",
+      "nationality": "British",
+      "points": 355,
+      "barPct": 58,
+      "teamColor": "mclaren"
     },
     {
       "pos": 5,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 100,
+      "points": 102,
       "barPct": 17,
       "teamColor": "racingbulls"
     },
@@ -195,8 +195,8 @@
       "pos": 6,
       "name": "Alpine F1 Team",
       "nationality": "French",
-      "points": 68,
-      "barPct": 12,
+      "points": 69,
+      "barPct": 11,
       "teamColor": "alpine"
     },
     {
@@ -400,7 +400,8 @@
       "circuit": "Circuit of the Americas",
       "country": "USA",
       "date": "2026-10-25",
-      "status": "next"
+      "status": "done",
+      "winner": "A. Antonelli"
     },
     {
       "round": 19,
@@ -408,7 +409,7 @@
       "circuit": "Aut\u00f3dromo Hermanos Rodr\u00edguez",
       "country": "Mexico",
       "date": "2026-11-01",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 20,
@@ -444,14 +445,14 @@
     }
   ],
   "fastestLap": {
-    "time": "1:35.202",
+    "time": "1:37.976",
     "driver": "LEC",
     "team": "Ferrari",
-    "race": "Singapore Grand Prix"
+    "race": "United States Grand Prix"
   },
   "fastestPitStop": {
-    "duration": "23.591",
-    "team": "Mercedes",
-    "race": "Singapore Grand Prix"
+    "duration": "23.413",
+    "team": "McLaren",
+    "race": "United States Grand Prix"
   }
 }
