@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-02T01:57:03.325878+00:00",
+  "fetchedAt": "2026-11-07T19:16:37.991824+00:00",
   "season": 2026,
   "lastRace": {
     "round": 19,
@@ -111,8 +111,8 @@
       "code": "PIA",
       "team": "McLaren",
       "nationality": "Australian",
-      "points": 150,
-      "gap": "\u2212230",
+      "points": 144,
+      "gap": "\u2212236",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -122,8 +122,8 @@
       "code": "HAD",
       "team": "Red Bull",
       "nationality": "French",
-      "points": 105,
-      "gap": "\u2212275",
+      "points": 107,
+      "gap": "\u2212273",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -133,8 +133,8 @@
       "code": "LAW",
       "team": "Red Bull",
       "nationality": "New Zealander",
-      "points": 79,
-      "gap": "\u2212301",
+      "points": 83,
+      "gap": "\u2212297",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -144,8 +144,8 @@
       "code": "GAS",
       "team": "Alpine F1 Team",
       "nationality": "French",
-      "points": 43,
-      "gap": "\u2212337",
+      "points": 42,
+      "gap": "\u2212338",
       "teamColor": "alpine",
       "isLeader": false
     }
@@ -171,23 +171,23 @@
       "pos": 3,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 380,
-      "barPct": 60,
+      "points": 382,
+      "barPct": 61,
       "teamColor": "redbull"
     },
     {
       "pos": 4,
       "name": "McLaren",
       "nationality": "British",
-      "points": 371,
-      "barPct": 59,
+      "points": 365,
+      "barPct": 58,
       "teamColor": "mclaren"
     },
     {
       "pos": 5,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 104,
+      "points": 108,
       "barPct": 17,
       "teamColor": "racingbulls"
     },
@@ -195,15 +195,15 @@
       "pos": 6,
       "name": "Alpine F1 Team",
       "nationality": "French",
-      "points": 74,
-      "barPct": 12,
+      "points": 69,
+      "barPct": 11,
       "teamColor": "alpine"
     },
     {
       "pos": 7,
       "name": "Haas F1 Team",
       "nationality": "American",
-      "points": 30,
+      "points": 31,
       "barPct": 5,
       "teamColor": "haas"
     },
@@ -211,7 +211,7 @@
       "pos": 8,
       "name": "Audi",
       "nationality": "German",
-      "points": 23,
+      "points": 27,
       "barPct": 4,
       "teamColor": "ink-3"
     },
