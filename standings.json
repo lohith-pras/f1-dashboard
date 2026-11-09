@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T19:22:13.012039+00:00",
+  "fetchedAt": "2026-11-09T02:32:15.937079+00:00",
   "season": 2026,
   "lastRace": {
     "round": 20,
@@ -89,8 +89,8 @@
       "code": "LEC",
       "team": "Ferrari",
       "nationality": "Monegasque",
-      "points": 251,
-      "gap": "\u2212139",
+      "points": 249,
+      "gap": "\u2212141",
       "teamColor": "ferrari",
       "isLeader": false
     },
@@ -133,8 +133,8 @@
       "code": "LAW",
       "team": "Red Bull",
       "nationality": "New Zealander",
-      "points": 87,
-      "gap": "\u2212303",
+      "points": 89,
+      "gap": "\u2212301",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -163,8 +163,8 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 512,
-      "barPct": 79,
+      "points": 510,
+      "barPct": 78,
       "teamColor": "ferrari"
     },
     {
@@ -187,7 +187,7 @@
       "pos": 5,
       "name": "RB F1 Team",
       "nationality": "Italian",
-      "points": 112,
+      "points": 114,
       "barPct": 17,
       "teamColor": "racingbulls"
     },
@@ -446,6 +446,15 @@
       "status": "upcoming"
     }
   ],
-  "fastestLap": null,
-  "fastestPitStop": null
+  "fastestLap": {
+    "time": "1:12.689",
+    "driver": "ANT",
+    "team": "Mercedes",
+    "race": "Brazilian Grand Prix"
+  },
+  "fastestPitStop": {
+    "duration": "23.346",
+    "team": "Red Bull",
+    "race": "Brazilian Grand Prix"
+  }
 }
