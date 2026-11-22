@@ -1,42 +1,42 @@
 {
-  "fetchedAt": "2026-11-22T02:51:24.410419+00:00",
+  "fetchedAt": "2026-11-22T20:53:40.448820+00:00",
   "season": 2026,
   "lastRace": {
-    "round": 20,
-    "name": "Brazilian Grand Prix",
-    "circuit": "Aut\u00f3dromo Jos\u00e9 Carlos Pace",
+    "round": 21,
+    "name": "Las Vegas Grand Prix",
+    "circuit": "Las Vegas Strip Street Circuit",
     "podium": [
       {
         "pos": 1,
-        "driver": "Lando Norris",
-        "team": "McLaren",
-        "number": "1",
-        "time": "1:35:23.504"
-      },
-      {
-        "pos": 2,
         "driver": "Max Verstappen",
         "team": "Red Bull",
         "number": "3",
-        "time": "+14.602"
+        "time": "1:27:39.624"
+      },
+      {
+        "pos": 2,
+        "driver": "Lando Norris",
+        "team": "McLaren",
+        "number": "1",
+        "time": "+0.639"
       },
       {
         "pos": 3,
-        "driver": "Isack Hadjar",
-        "team": "Red Bull",
-        "number": "6",
-        "time": "+24.485"
+        "driver": "Oscar Piastri",
+        "team": "McLaren",
+        "number": "81",
+        "time": "+1.529"
       }
     ]
   },
   "nextRace": {
-    "round": 21,
-    "name": "Las Vegas Grand Prix",
-    "circuit": "Las Vegas Strip Street Circuit",
-    "locality": "Las Vegas",
-    "country": "USA",
-    "date": "2026-11-22",
-    "time": "04:00:00Z"
+    "round": 22,
+    "name": "Qatar Grand Prix",
+    "circuit": "Lusail International Circuit",
+    "locality": "Lusail",
+    "country": "Qatar",
+    "date": "2026-11-29",
+    "time": "16:00:00Z"
   },
   "drivers": [
     {
@@ -45,7 +45,7 @@
       "code": "ANT",
       "team": "Mercedes",
       "nationality": "Italian",
-      "points": 390,
+      "points": 402,
       "gap": "LEAD",
       "teamColor": "mercedes",
       "isLeader": true
@@ -56,53 +56,53 @@
       "code": "VER",
       "team": "Red Bull",
       "nationality": "Dutch",
-      "points": 279,
-      "gap": "\u2212111",
+      "points": 304,
+      "gap": "\u221298",
       "teamColor": "redbull",
       "isLeader": false
     },
     {
       "pos": 3,
-      "name": "G. Russell",
-      "code": "RUS",
-      "team": "Mercedes",
-      "nationality": "British",
-      "points": 262,
-      "gap": "\u2212128",
-      "teamColor": "mercedes",
-      "isLeader": false
-    },
-    {
-      "pos": 4,
       "name": "L. Hamilton",
       "code": "HAM",
       "team": "Ferrari",
       "nationality": "British",
-      "points": 261,
-      "gap": "\u2212129",
+      "points": 267,
+      "gap": "\u2212135",
       "teamColor": "ferrari",
+      "isLeader": false
+    },
+    {
+      "pos": 4,
+      "name": "G. Russell",
+      "code": "RUS",
+      "team": "Mercedes",
+      "nationality": "British",
+      "points": 264,
+      "gap": "\u2212138",
+      "teamColor": "mercedes",
       "isLeader": false
     },
     {
       "pos": 5,
-      "name": "C. Leclerc",
-      "code": "LEC",
-      "team": "Ferrari",
-      "nationality": "Monegasque",
-      "points": 249,
-      "gap": "\u2212141",
-      "teamColor": "ferrari",
-      "isLeader": false
-    },
-    {
-      "pos": 6,
       "name": "L. Norris",
       "code": "NOR",
       "team": "McLaren",
       "nationality": "British",
-      "points": 246,
-      "gap": "\u2212144",
+      "points": 264,
+      "gap": "\u2212138",
       "teamColor": "mclaren",
+      "isLeader": false
+    },
+    {
+      "pos": 6,
+      "name": "C. Leclerc",
+      "code": "LEC",
+      "team": "Ferrari",
+      "nationality": "Monegasque",
+      "points": 250,
+      "gap": "\u2212152",
+      "teamColor": "ferrari",
       "isLeader": false
     },
     {
@@ -111,8 +111,8 @@
       "code": "PIA",
       "team": "McLaren",
       "nationality": "Australian",
-      "points": 152,
-      "gap": "\u2212238",
+      "points": 167,
+      "gap": "\u2212235",
       "teamColor": "mclaren",
       "isLeader": false
     },
@@ -123,7 +123,7 @@
       "team": "Red Bull",
       "nationality": "French",
       "points": 122,
-      "gap": "\u2212268",
+      "gap": "\u2212280",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -134,7 +134,7 @@
       "team": "Red Bull",
       "nationality": "New Zealander",
       "points": 89,
-      "gap": "\u2212301",
+      "gap": "\u2212313",
       "teamColor": "redbull",
       "isLeader": false
     },
@@ -144,8 +144,8 @@
       "code": "GAS",
       "team": "Alpine F1 Team",
       "nationality": "French",
-      "points": 42,
-      "gap": "\u2212348",
+      "points": 52,
+      "gap": "\u2212350",
       "teamColor": "alpine",
       "isLeader": false
     }
@@ -155,7 +155,7 @@
       "pos": 1,
       "name": "Mercedes",
       "nationality": "German",
-      "points": 652,
+      "points": 666,
       "barPct": 100,
       "teamColor": "mercedes"
     },
@@ -163,7 +163,7 @@
       "pos": 2,
       "name": "Ferrari",
       "nationality": "Italian",
-      "points": 510,
+      "points": 517,
       "barPct": 78,
       "teamColor": "ferrari"
     },
@@ -171,16 +171,16 @@
       "pos": 3,
       "name": "Red Bull",
       "nationality": "Austrian",
-      "points": 415,
-      "barPct": 64,
+      "points": 440,
+      "barPct": 66,
       "teamColor": "redbull"
     },
     {
       "pos": 4,
       "name": "McLaren",
       "nationality": "British",
-      "points": 398,
-      "barPct": 61,
+      "points": 431,
+      "barPct": 65,
       "teamColor": "mclaren"
     },
     {
@@ -195,8 +195,8 @@
       "pos": 6,
       "name": "Alpine F1 Team",
       "nationality": "French",
-      "points": 69,
-      "barPct": 11,
+      "points": 87,
+      "barPct": 13,
       "teamColor": "alpine"
     },
     {
@@ -219,7 +219,7 @@
       "pos": 9,
       "name": "Williams",
       "nationality": "British",
-      "points": 12,
+      "points": 16,
       "barPct": 2,
       "teamColor": "williams"
     },
@@ -427,7 +427,8 @@
       "circuit": "Las Vegas Strip Street Circuit",
       "country": "USA",
       "date": "2026-11-22",
-      "status": "next"
+      "status": "done",
+      "winner": "M. Verstappen"
     },
     {
       "round": 22,
@@ -435,7 +436,7 @@
       "circuit": "Lusail International Circuit",
       "country": "Qatar",
       "date": "2026-11-29",
-      "status": "upcoming"
+      "status": "next"
     },
     {
       "round": 23,
@@ -447,14 +448,14 @@
     }
   ],
   "fastestLap": {
-    "time": "1:12.689",
-    "driver": "ANT",
-    "team": "Mercedes",
-    "race": "Brazilian Grand Prix"
+    "time": "1:35.591",
+    "driver": "LAW",
+    "team": "RB F1 Team",
+    "race": "Las Vegas Grand Prix"
   },
   "fastestPitStop": {
-    "duration": "23.346",
+    "duration": "21.220",
     "team": "Red Bull",
-    "race": "Brazilian Grand Prix"
+    "race": "Las Vegas Grand Prix"
   }
 }
